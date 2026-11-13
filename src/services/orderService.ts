@@ -1,7 +1,7 @@
-import { addDoc, collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, getDocs, query, updateDoc, where } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 import type { CartItem } from '../types/cart'
-import type { Order, OrderStatus } from '../types/order'
+import type { Order, OrderStatus, PaymentMethod, ShippingInfo } from '../types/order'
 
 const ordersRef = collection(db, 'orders')
 
@@ -9,7 +9,12 @@ function newestFirst(a: Order, b: Order) {
   return b.createdAt.localeCompare(a.createdAt)
 }
 
-export async function placeOrder(items: CartItem[], userId: string | null): Promise<Order> {
+export async function placeOrder(
+  items: CartItem[],
+  userId: string | null,
+  shipping: ShippingInfo,
+  paymentMethod: PaymentMethod,
+): Promise<Order> {
   const data: Omit<Order, 'id'> = {
     userId,
     items: items.map(({ product, quantity }) => ({
@@ -23,6 +28,8 @@ export async function placeOrder(items: CartItem[], userId: string | null): Prom
     totalItems: items.reduce((sum, item) => sum + item.quantity, 0),
     totalPrice: items.reduce((sum, item) => sum + item.quantity * item.product.price, 0),
     status: 'placed',
+    shipping,
+    paymentMethod,
     createdAt: new Date().toISOString(),
   }
 
@@ -34,6 +41,12 @@ export async function placeOrder(items: CartItem[], userId: string | null): Prom
 export async function getUserOrders(userId: string): Promise<Order[]> {
   const snapshot = await getDocs(query(ordersRef, where('userId', '==', userId)))
   return snapshot.docs.map((d) => ({ ...(d.data() as Omit<Order, 'id'>), id: d.id })).sort(newestFirst)
+}
+
+/** O singură comandă (null dacă nu există) – doar pentru admini sau proprietarul comenzii. */
+export async function getOrder(orderId: string): Promise<Order | null> {
+  const snapshot = await getDoc(doc(db, 'orders', orderId))
+  return snapshot.exists() ? { ...(snapshot.data() as Omit<Order, 'id'>), id: snapshot.id } : null
 }
 
 /** Toate comenzile – doar pentru admini. */

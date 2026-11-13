@@ -7,9 +7,13 @@ import AuthProvider from './context/AuthProvider'
 import CartProvider from './context/CartProvider'
 import FavoritesProvider from './context/FavoritesProvider'
 import ThemeProvider from './context/ThemeProvider'
+import AdminCustomersPage from './pages/AdminCustomersPage'
+import AdminOrderDetailPage from './pages/AdminOrderDetailPage'
+import AdminOrdersPage from './pages/AdminOrdersPage'
 import AdminPage from './pages/AdminPage'
 import AdminProductFormPage from './pages/AdminProductFormPage'
 import AdminProductsPage from './pages/AdminProductsPage'
+import CheckoutPage from './pages/CheckoutPage'
 import ContactPage from './pages/ContactPage'
 import OrdersPage from './pages/OrdersPage'
 import FavoritesPage from './pages/FavoritesPage'
@@ -40,12 +44,37 @@ export default function App() {
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/autentificare" element={<LoginPage />} />
                     <Route path="/cont-nou" element={<RegisterPage />} />
+                    <Route path="/finalizare-comanda" element={<CheckoutPage />} />
                     <Route path="/comanda-finalizata" element={<OrderSuccessPage />} />
                     <Route
                       path="/comenzile-mele"
                       element={
                         <RequireAuth>
                           <OrdersPage />
+                        </RequireAuth>
+                      }
+                    />
+                    <Route
+                      path="/admin/comenzi"
+                      element={
+                        <RequireAuth admin>
+                          <AdminOrdersPage />
+                        </RequireAuth>
+                      }
+                    />
+                    <Route
+                      path="/admin/comenzi/:orderId"
+                      element={
+                        <RequireAuth admin>
+                          <AdminOrderDetailPage />
+                        </RequireAuth>
+                      }
+                    />
+                    <Route
+                      path="/admin/clienti"
+                      element={
+                        <RequireAuth admin>
+                          <AdminCustomersPage />
                         </RequireAuth>
                       }
                     />

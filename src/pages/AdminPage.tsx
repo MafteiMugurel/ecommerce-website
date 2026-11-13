@@ -5,6 +5,7 @@ import AdminNav from '../components/admin/AdminNav'
 import BarList from '../components/admin/BarList'
 import ChartCard from '../components/admin/ChartCard'
 import ColumnChart from '../components/admin/ColumnChart'
+import DonutChart from '../components/admin/DonutChart'
 import StatTile from '../components/admin/StatTile'
 import OrderStatusBadge from '../components/OrderStatusBadge'
 import { useProducts } from '../hooks/useProducts'
@@ -12,8 +13,8 @@ import { currentLocale } from '../i18n'
 import { useCategoryLabel } from '../i18n/useCategoryLabel'
 import { getMessages, getStoreCounts, type ContactMessageRecord, type StoreCounts } from '../services/adminService'
 import { getAllOrders, updateOrderStatus } from '../services/orderService'
-import { ORDER_STATUSES, type Order, type OrderStatus } from '../types/order'
-import { formatCompactPrice, formatDate, formatNumber, formatPrice } from '../utils/format'
+import { ORDER_STATUSES, PAYMENT_METHODS, type Order, type OrderStatus } from '../types/order'
+import { formatCompactPrice, formatDate, formatNumber, formatPrice, shortOrderId } from '../utils/format'
 
 const PERIODS = [
   { days: 7 },
@@ -23,6 +24,7 @@ const PERIODS = [
 
 const DAY_MS = 86_400_000
 const LOW_STOCK_LIMIT = 5
+const TOP_COUNTIES = 5
 
 function dayKey(date: Date) {
   return date.toISOString().slice(0, 10)
@@ -106,6 +108,13 @@ export default function AdminPage() {
       }
     }
 
+    const byCounty = new Map<string, number>()
+    const byPayment = new Map<string, number>()
+    for (const o of inPeriod) {
+      if (o.shipping?.county) byCounty.set(o.shipping.county, (byCounty.get(o.shipping.county) ?? 0) + 1)
+      if (o.paymentMethod) byPayment.set(o.paymentMethod, (byPayment.get(o.paymentMethod) ?? 0) + 1)
+    }
+
     const statusCounts = ORDER_STATUSES.map((status) => ({
       status,
       count: inPeriod.filter((o) => o.status === status).length,
@@ -124,6 +133,15 @@ export default function AdminPage() {
         .sort((a, b) => b.units - a.units || b.revenue - a.revenue)
         .slice(0, 5),
       statusCounts,
+      // toate județele (pentru tabel) și primele N + „Alte județe” (pentru grafic)
+      byCounty: [...byCounty.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .map(([county, value]) => ({ key: county, label: county, value })),
+      byPayment: PAYMENT_METHODS.map((method) => ({
+        key: method,
+        label: t(`payment.${method}`),
+        value: byPayment.get(method) ?? 0,
+      })).filter((d) => d.value > 0),
     }
     // t se schimbă odată cu limba, deci etichetele (zile, categorii) se refac automat
   }, [orders, products, periodDays, now, t, categoryLabel])
@@ -152,6 +170,16 @@ export default function AdminPage() {
   }
 
   const periodLabel = t('admin.lastDays', { count: periodDays })
+  const formatPercent = (share: number) =>
+    new Intl.NumberFormat(currentLocale(), { style: 'percent', maximumFractionDigits: 0 }).format(share)
+  // Graficul arată primele județe + „Alte județe”; tabelul le arată pe toate
+  const otherCountiesTotal = stats.byCounty.slice(TOP_COUNTIES).reduce((sum, d) => sum + d.value, 0)
+  const countySlices = [
+    ...stats.byCounty.slice(0, TOP_COUNTIES),
+    ...(otherCountiesTotal > 0
+      ? [{ key: 'other', label: t('admin.otherCounties'), value: otherCountiesTotal, other: true }]
+      : []),
+  ]
 
   return (
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-8 sm:px-6 lg:px-8">
@@ -274,6 +302,77 @@ export default function AdminPage() {
         />
       </div>
 
+      <div className="grid gap-6 lg:grid-cols-2">
+        <ChartCard
+          title={t('admin.ordersByCounty')}
+          subtitle={periodLabel}
+          chart={
+            stats.byCounty.length ? (
+              <DonutChart
+                data={countySlices}
+                centerLabel={t('admin.ordersCenter')}
+                formatValue={(v) => formatNumber(v)}
+                formatPercent={formatPercent}
+              />
+            ) : (
+              <p className="text-sm text-gray-500">{t('admin.noSales')}</p>
+            )
+          }
+          table={
+            <table className={tableClass}>
+              <thead>
+                <tr>
+                  <th className={thClass}>{t('admin.county')}</th>
+                  <th className={`${thClass} text-right`}>{t('admin.ordersCount')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {stats.byCounty.map((d) => (
+                  <tr key={d.key}>
+                    <td className={tdClass}>{d.label}</td>
+                    <td className={`${tdClass} text-right tabular-nums`}>{d.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          }
+        />
+        <ChartCard
+          title={t('admin.paymentMethods')}
+          subtitle={periodLabel}
+          chart={
+            stats.byPayment.length ? (
+              <DonutChart
+                data={stats.byPayment}
+                centerLabel={t('admin.ordersCenter')}
+                formatValue={(v) => formatNumber(v)}
+                formatPercent={formatPercent}
+              />
+            ) : (
+              <p className="text-sm text-gray-500">{t('admin.noSales')}</p>
+            )
+          }
+          table={
+            <table className={tableClass}>
+              <thead>
+                <tr>
+                  <th className={thClass}>{t('orderDetails.paymentMethod')}</th>
+                  <th className={`${thClass} text-right`}>{t('admin.ordersCount')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {stats.byPayment.map((d) => (
+                  <tr key={d.key}>
+                    <td className={tdClass}>{d.label}</td>
+                    <td className={`${tdClass} text-right tabular-nums`}>{d.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          }
+        />
+      </div>
+
       <div className="grid gap-6 lg:grid-cols-3">
         {/* Top produse */}
         <section className="rounded-2xl border border-gray-200 bg-surface p-5 lg:col-span-2">
@@ -324,7 +423,12 @@ export default function AdminPage() {
 
       {/* Comenzi recente, cu schimbare de status */}
       <section className="rounded-2xl border border-gray-200 bg-surface p-5">
-        <h2 className="mb-3 font-semibold text-gray-900">{t('admin.recentOrders')}</h2>
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <h2 className="font-semibold text-gray-900">{t('admin.recentOrders')}</h2>
+          <Link to="/admin/comenzi" className="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
+            {t('adminOrders.viewAll')} →
+          </Link>
+        </div>
         <div className="overflow-x-auto">
           <table className={`${tableClass} min-w-[640px]`}>
             <thead>
@@ -340,9 +444,30 @@ export default function AdminPage() {
             <tbody>
               {orders.slice(0, 10).map((o) => (
                 <tr key={o.id}>
-                  <td className={`${tdClass} font-mono text-xs`}>#{o.id.slice(0, 8).toUpperCase()}</td>
+                  <td className={`${tdClass} font-mono text-xs`}>
+                    <Link
+                      to={`/admin/comenzi/${o.id}`}
+                      className="font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+                      title={t('adminOrders.details')}
+                    >
+                      #{shortOrderId(o.id)}
+                    </Link>
+                  </td>
                   <td className={tdClass}>{formatDate(o.createdAt)}</td>
-                  <td className={`${tdClass} text-gray-600`}>{o.userId ? t('admin.customerAccount') : t('admin.customerGuest')}</td>
+                  <td className={`${tdClass} text-gray-600`}>
+                    {o.shipping ? (
+                      <>
+                        <span className="text-gray-900">{o.shipping.name}</span>
+                        <span className="block text-xs">
+                          {o.shipping.city} · {o.userId ? t('admin.customerAccount') : t('admin.customerGuest')}
+                        </span>
+                      </>
+                    ) : o.userId ? (
+                      t('admin.customerAccount')
+                    ) : (
+                      t('admin.customerGuest')
+                    )}
+                  </td>
                   <td className={`${tdClass} text-right tabular-nums`}>{o.totalItems}</td>
                   <td className={`${tdClass} text-right tabular-nums`}>{formatPrice(o.totalPrice)}</td>
                   <td className={tdClass}>

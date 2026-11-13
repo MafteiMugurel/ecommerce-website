@@ -112,7 +112,15 @@
       "price": 3299,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/2023_Gigabyte_GeForce_RTX_4070_Aero_OC_12GB_%283%29.jpg/960px-2023_Gigabyte_GeForce_RTX_4070_Aero_OC_12GB_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Jacek Halicki",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Gigabyte_GeForce_RTX_4070_Aero_OC_12GB_(3).jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 8,
       "rating": 4.8,
       "specs": [
@@ -167,7 +175,15 @@
       "price": 539,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Kingston_FURY_Impact_DDR5_SO-DIMM_Laptop_Memory_32GB_Module_-_front_view.jpg/960px-Kingston_FURY_Impact_DDR5_SO-DIMM_Laptop_Memory_32GB_Module_-_front_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "ITEagle Europe - Sebastiaan Broekhoven",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kingston_FURY_Impact_DDR5_SO-DIMM_Laptop_Memory_32GB_Module_-_front_view.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 40,
       "rating": 4.7,
       "specs": [
@@ -214,7 +230,15 @@
       "price": 899,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/2023_P%C5%82yta_g%C5%82%C3%B3wna_ASRock_A320M-DVS.jpg/960px-2023_P%C5%82yta_g%C5%82%C3%B3wna_ASRock_A320M-DVS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Jacek Halicki",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_P%C5%82yta_g%C5%82%C3%B3wna_ASRock_A320M-DVS.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 12,
       "rating": 4.5,
       "specs": [
@@ -377,7 +401,15 @@
       "price": 2349,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/3x_Dell_Ultrasharps.jpg/960px-3x_Dell_Ultrasharps.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "andytb",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:3x_Dell_Ultrasharps.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 9,
       "rating": 4.7,
       "specs": [
@@ -432,7 +464,14 @@
       "price": 479,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Logitech_MX_Master_3S_HS11.jpg/960px-Logitech_MX_Master_3S_HS11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Hayden Schiff",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Logitech_MX_Master_3S_HS11.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 35,
       "rating": 4.8,
       "specs": [
@@ -537,7 +576,15 @@
       "price": 329,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Webcam_%28Logitech_c922%29.jpg/960px-Webcam_%28Logitech_c922%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Zsinytwiki",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Webcam_(Logitech_c922).jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 27,
       "rating": 4.5,
       "specs": [
@@ -584,7 +631,15 @@
       "price": 1599,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Sony-WH-1000XM3-kabellose-Bluetooth-Noise-Cancelling-Kopfhoerer.jpg/960px-Sony-WH-1000XM3-kabellose-Bluetooth-Noise-Cancelling-Kopfhoerer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "www.digitalpush.net",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sony-WH-1000XM3-kabellose-Bluetooth-Noise-Cancelling-Kopfhoerer.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 14,
       "rating": 4.8,
       "specs": [
@@ -631,7 +686,15 @@
       "price": 599,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/CES_2012_-_Edifier_speakers_%286791473130%29.jpg/960px-CES_2012_-_Edifier_speakers_%286791473130%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "The Conmunity - Pop Culture Geek from Los Angeles, CA, USA",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:CES_2012_-_Edifier_speakers_(6791473130).jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 18,
       "rating": 4.6,
       "specs": [
@@ -678,7 +741,15 @@
       "price": 699,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/AKG_Perception_120_USB_condenser_microphone_with_SH_100_shock_mount.jpg/960px-AKG_Perception_120_USB_condenser_microphone_with_SH_100_shock_mount.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Lucasbosch",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:AKG_Perception_120_USB_condenser_microphone_with_SH_100_shock_mount.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 10,
       "rating": 4.7,
       "specs": [
@@ -729,7 +800,15 @@
       "price": 849,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/SteelSeries_4h.JPG/960px-SteelSeries_4h.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Dudkaa ss",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:SteelSeries_4h.JPG",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 16,
       "rating": 4.6,
       "specs": [
@@ -776,7 +855,14 @@
       "price": 289,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Xbox_Series_Controller_Carbon_Black.jpg/960px-Xbox_Series_Controller_Carbon_Black.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "uKER",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xbox_Series_Controller_Carbon_Black.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 50,
       "rating": 4.7,
       "specs": [
@@ -819,7 +905,15 @@
       "price": 749,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Razer_DeathAdder_Elite-front_oblique-ar_16to10-fs_PNr%C2%B00465.jpg/960px-Razer_DeathAdder_Elite-front_oblique-ar_16to10-fs_PNr%C2%B00465.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "D-Kuru",
+        "license": "CC BY-SA 3.0 at",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Razer_DeathAdder_Elite-front_oblique-ar_16to10-fs_PNr%C2%B00465.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 6,
       "rating": 4.8,
       "specs": [
@@ -870,7 +964,15 @@
       "price": 6499,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Dell_PowerEdge_servers.jpg/960px-Dell_PowerEdge_servers.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Dell Inc.",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dell_PowerEdge_servers.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 3,
       "rating": 4.5,
       "specs": [
@@ -979,7 +1081,15 @@
       "price": 1799,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Synology_Disk_Station_DS223J_-_NAS-Server.jpg/960px-Synology_Disk_Station_DS223J_-_NAS-Server.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "DYVER",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synology_Disk_Station_DS223J_-_NAS-Server.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 11,
       "rating": 4.8,
       "specs": [
@@ -1030,7 +1140,15 @@
       "price": 1299,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/HP_LaserJet_laser_printer.jpg/330px-HP_LaserJet_laser_printer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Kartoffel.3.7",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:HP_LaserJet_laser_printer.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 13,
       "rating": 4.5,
       "specs": [
@@ -1081,7 +1199,15 @@
       "price": 899,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/C11CB57201_Inyecci%C3%B3n%2Bde%2Btinta_Epson%2BEcoTank%2BL800_ES.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "imageCredit": {
+        "author": "YasmaSA1991",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:C11CB57201_Inyecci%C3%B3n%2Bde%2Btinta_Epson%2BEcoTank%2BL800_ES.png",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 20,
       "rating": 4.4,
       "specs": [
@@ -1128,7 +1254,15 @@
       "price": 1149,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Brother_QL-710W_Label_Printer.jpg/960px-Brother_QL-710W_Label_Printer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "TaurusEmerald",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brother_QL-710W_Label_Printer.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 0,
       "rating": 4.3,
       "specs": [
@@ -1175,7 +1309,15 @@
       "price": 449,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/TP-link_Archer_A6_Router_%28v4%29_-_Front_Side.jpg/960px-TP-link_Archer_A6_Router_%28v4%29_-_Front_Side.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Paowee",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:TP-link_Archer_A6_Router_(v4)_-_Front_Side.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 25,
       "rating": 4.6,
       "specs": [
@@ -1222,7 +1364,15 @@
       "price": 1899,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Cisco_small_business_SG300-28_28-port_Gigabit_Ethernet_rackmount_switch.jpg/960px-Cisco_small_business_SG300-28_28-port_Gigabit_Ethernet_rackmount_switch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Dsimic",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cisco_small_business_SG300-28_28-port_Gigabit_Ethernet_rackmount_switch.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 7,
       "rating": 4.7,
       "specs": [
@@ -1327,7 +1477,15 @@
       "price": 899,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Intel_Core_i5_13600K.jpg/960px-Intel_Core_i5_13600K.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "4300streetcar",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Intel_Core_i5_13600K.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 24,
       "rating": 4.6,
       "specs": [
@@ -1436,7 +1594,15 @@
       "price": 2799,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/MoreThanTech_ASUS_TUF_Gaming_Radeon_RX_7900_XTX_OC_Edition_24GB_GDDR6.png/960px-MoreThanTech_ASUS_TUF_Gaming_Radeon_RX_7900_XTX_OC_Edition_24GB_GDDR6.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "MoreThanTech",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:MoreThanTech_ASUS_TUF_Gaming_Radeon_RX_7900_XTX_OC_Edition_24GB_GDDR6.png",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 7,
       "rating": 4.7,
       "specs": [
@@ -1487,7 +1653,15 @@
       "price": 1499,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/2023_Gigabyte_GeForce_RTX_4070_Aero_OC_12GB_%282%29.jpg/960px-2023_Gigabyte_GeForce_RTX_4070_Aero_OC_12GB_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Jacek Halicki",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Gigabyte_GeForce_RTX_4070_Aero_OC_12GB_(2).jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 21,
       "rating": 4.4,
       "specs": [
@@ -1538,7 +1712,15 @@
       "price": 1349,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_P%C5%82yta_g%C5%82%C3%B3wna_Asus_ROG_STRIX_Z690-A_GAMING_WIFI.jpg/960px-2023_P%C5%82yta_g%C5%82%C3%B3wna_Asus_ROG_STRIX_Z690-A_GAMING_WIFI.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Jacek Halicki",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_P%C5%82yta_g%C5%82%C3%B3wna_Asus_ROG_STRIX_Z690-A_GAMING_WIFI.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 9,
       "rating": 4.6,
       "specs": [
@@ -1589,7 +1771,15 @@
       "price": 699,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Corsair_CX600M_5_2019-05-06.jpg/960px-Corsair_CX600M_5_2019-05-06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "FASTILY",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corsair_CX600M_5_2019-05-06.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 17,
       "rating": 4.8,
       "specs": [
@@ -1690,7 +1880,15 @@
       "price": 659,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Fractal_Design_Focus_G.jpg/960px-Fractal_Design_Focus_G.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Tiia Monto",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fractal_Design_Focus_G.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 10,
       "rating": 4.7,
       "specs": [
@@ -1737,7 +1935,14 @@
       "price": 479,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Western_Digital_SN850X_NVME_solid_state_drive_8TB_front_side.jpg/960px-Western_Digital_SN850X_NVME_solid_state_drive_8TB_front_side.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "4300streetcar",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Western_Digital_SN850X_NVME_solid_state_drive_8TB_front_side.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 34,
       "rating": 4.8,
       "specs": [
@@ -1838,7 +2043,15 @@
       "price": 449,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/SAMSUNG_860_EVO_500GB.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "imageCredit": {
+        "author": "User5515",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:SAMSUNG_860_EVO_500GB.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 31,
       "rating": 4.8,
       "specs": [
@@ -1889,7 +2102,15 @@
       "price": 499,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Samsung_T5_Portable_External_SSD_%28Solid_State_Drive%29_%2843544308485%29.jpg/960px-Samsung_T5_Portable_External_SSD_%28Solid_State_Drive%29_%2843544308485%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Tony Webster from Minneapolis, Minnesota, United States",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samsung_T5_Portable_External_SSD_(Solid_State_Drive)_(43544308485).jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 26,
       "rating": 4.7,
       "specs": [
@@ -1998,7 +2219,15 @@
       "price": 589,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Western_Digital_%22Red%22_4_TB_SATA_NAS-optimized_3.5-inch_HDD.jpg/960px-Western_Digital_%22Red%22_4_TB_SATA_NAS-optimized_3.5-inch_HDD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Dsimic",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Western_Digital_%22Red%22_4_TB_SATA_NAS-optimized_3.5-inch_HDD.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 18,
       "rating": 4.5,
       "specs": [
@@ -2157,7 +2386,15 @@
       "price": 2899,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/QNAP_TS-453Be_TS-451%2B_20190601.jpg/960px-QNAP_TS-453Be_TS-451%2B_20190601.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Solomon203",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:QNAP_TS-453Be_TS-451%2B_20190601.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 5,
       "rating": 4.6,
       "specs": [
@@ -2208,7 +2445,15 @@
       "price": 1399,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/LG_UltraWide_monitors.jpg/960px-LG_UltraWide_monitors.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "LG전자",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:LG_UltraWide_monitors.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 15,
       "rating": 4.6,
       "specs": [
@@ -2259,7 +2504,15 @@
       "price": 599,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Samsung_monitor_with_VESA_mount.jpg/960px-Samsung_monitor_with_VESA_mount.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Espen Klem",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samsung_monitor_with_VESA_mount.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 37,
       "rating": 4.3,
       "specs": [
@@ -2310,7 +2563,15 @@
       "price": 2699,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Dell_S3423DWC_unboxing%2C_front.png/960px-Dell_S3423DWC_unboxing%2C_front.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "XALIRATE",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dell_S3423DWC_unboxing,_front.png",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 6,
       "rating": 4.7,
       "specs": [
@@ -2465,7 +2726,15 @@
       "price": 349,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Logitech_MX_Vertical_Ergonomic_Mouse.jpg/960px-Logitech_MX_Vertical_Ergonomic_Mouse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "TaurusEmerald",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Logitech_MX_Vertical_Ergonomic_Mouse.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 19,
       "rating": 4.6,
       "specs": [
@@ -2566,7 +2835,15 @@
       "price": 199,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Anker_PowerExpand_8-in-1-2186.jpg/960px-Anker_PowerExpand_8-in-1-2186.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Raimond Spekking",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anker_PowerExpand_8-in-1-2186.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 45,
       "rating": 4.5,
       "specs": [
@@ -2663,7 +2940,15 @@
       "price": 1899,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Bose_QuietComfort_35_II_Wireless_Headphones.jpg/960px-Bose_QuietComfort_35_II_Wireless_Headphones.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Carsonjp21",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bose_QuietComfort_35_II_Wireless_Headphones.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 9,
       "rating": 4.7,
       "specs": [
@@ -2822,7 +3107,15 @@
       "price": 749,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Audio_Technica_ATH-M50_Headphones.jpg/960px-Audio_Technica_ATH-M50_Headphones.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Fletcher6",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Audio_Technica_ATH-M50_Headphones.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 12,
       "rating": 4.8,
       "specs": [
@@ -2873,7 +3166,15 @@
       "price": 749,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/JBL_Charge_4_2v2.jpg/960px-JBL_Charge_4_2v2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Singlespeedfahrer",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:JBL_Charge_4_2v2.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 29,
       "rating": 4.7,
       "specs": [
@@ -2920,7 +3221,15 @@
       "price": 299,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Logitech_computer_loudspeakers.jpg/960px-Logitech_computer_loudspeakers.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Ralf Roletschek- Fahrradtechnik auf fahrradmonteur.de",
+        "license": "GFDL 1.2",
+        "licenseUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Logitech_computer_loudspeakers.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 21,
       "rating": 4.3,
       "specs": [
@@ -2967,7 +3276,15 @@
       "price": 2299,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Sonos_soundbar%2C_2021.jpg/960px-Sonos_soundbar%2C_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Ssu",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sonos_soundbar,_2021.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 4,
       "rating": 4.6,
       "specs": [
@@ -3010,7 +3327,15 @@
       "price": 899,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Focusrite_Scarlett_Solo_3rd_Gen.jpg/960px-Focusrite_Scarlett_Solo_3rd_Gen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Peter Placzek",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Focusrite_Scarlett_Solo_3rd_Gen.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 10,
       "rating": 4.8,
       "specs": [
@@ -3323,7 +3648,15 @@
       "price": 799,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Razer_Blackwidow_Chroma_1_2017-01-01.jpg/960px-Razer_Blackwidow_Chroma_1_2017-01-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "FASTILY",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Razer_Blackwidow_Chroma_1_2017-01-01.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 9,
       "rating": 4.6,
       "specs": [
@@ -3370,7 +3703,14 @@
       "price": 699,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/2026_G502_X_PLUS_%28side_view%29.jpg/960px-2026_G502_X_PLUS_%28side_view%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Stan Lee",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2026_G502_X_PLUS_(side_view).jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 14,
       "rating": 4.7,
       "specs": [
@@ -3421,7 +3761,15 @@
       "price": 149,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Logitech_Red_mouse_on_a_mouse_pad.jpg/960px-Logitech_Red_mouse_on_a_mouse_pad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "mycurrency.com",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Logitech_Red_mouse_on_a_mouse_pad.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 55,
       "rating": 4.8,
       "specs": [
@@ -3460,7 +3808,15 @@
       "price": 1899,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Gaming_chair.jpg/960px-Gaming_chair.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Ndurliat",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gaming_chair.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 5,
       "rating": 4.6,
       "specs": [
@@ -3615,7 +3971,15 @@
       "price": 5299,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/Lenovo_ThinkServer_%285122953286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "imageCredit": {
+        "author": "tamakei",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lenovo_ThinkServer_(5122953286).jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 4,
       "rating": 4.4,
       "specs": [
@@ -3662,7 +4026,15 @@
       "price": 18999,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Dell_PowerEdge_Servers.jpg/960px-Dell_PowerEdge_Servers.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Dsv",
+        "license": "Public domain",
+        "licenseUrl": null,
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dell_PowerEdge_Servers.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 2,
       "rating": 4.7,
       "specs": [
@@ -3713,7 +4085,15 @@
       "price": 6899,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/HP_ProLiant_MicroServer.JPG/960px-HP_ProLiant_MicroServer.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Pierre Rudloff",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:HP_ProLiant_MicroServer.JPG",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 3,
       "rating": 4.5,
       "specs": [
@@ -3760,7 +4140,15 @@
       "price": 21499,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/NetApp_by_Lenovo_2.jpg/960px-NetApp_by_Lenovo_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "KorP",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:NetApp_by_Lenovo_2.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 1,
       "rating": 4.6,
       "specs": [
@@ -3807,7 +4195,15 @@
       "price": 12499,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Supermicro%2C_Server%2C_X8DTU-F%2C_1.jpg/960px-Supermicro%2C_Server%2C_X8DTU-F%2C_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": ".mw-parser-output .template-designermadsen-source{border:1px solid #a2a9b1;background-color:#f8f9fa;display:grid;padding",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Supermicro,_Server,_X8DTU-F,_1.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 2,
       "rating": 4.4,
       "specs": [
@@ -3854,7 +4250,15 @@
       "price": 3499,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/19_inch_racks.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "imageCredit": {
+        "author": "US National Oceanic and Atmospheric Administration}",
+        "license": "Public domain",
+        "licenseUrl": null,
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:19_inch_racks.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 4,
       "rating": 4.5,
       "specs": [
@@ -3901,7 +4305,15 @@
       "price": 3199,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Apc_ups_rs500_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "imageCredit": {
+        "author": "Hundehalter",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Apc_ups_rs500_01.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 6,
       "rating": 4.8,
       "specs": [
@@ -3948,7 +4360,15 @@
       "price": 449,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Uninterruptible_power_supply.jpg/960px-Uninterruptible_power_supply.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Tahir mq",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uninterruptible_power_supply.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 20,
       "rating": 4.4,
       "specs": [
@@ -3991,7 +4411,15 @@
       "price": 699,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Samsung_8GB_DDR4-2400_ECC_Registered_RDIMM_M393A1G40EB1-CRC0Q_-_front_view.jpg/960px-Samsung_8GB_DDR4-2400_ECC_Registered_RDIMM_M393A1G40EB1-CRC0Q_-_front_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "ITEagle Europe - Sebastiaan Broekhoven",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samsung_8GB_DDR4-2400_ECC_Registered_RDIMM_M393A1G40EB1-CRC0Q_-_front_view.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 16,
       "rating": 4.7,
       "specs": [
@@ -4088,7 +4516,15 @@
       "price": 599,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Brother_HL-2240_Printer.jpg/960px-Brother_HL-2240_Printer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "TaurusEmerald",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brother_HL-2240_Printer.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 22,
       "rating": 4.5,
       "specs": [
@@ -4135,7 +4571,15 @@
       "price": 2199,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/HP_Color_LaserJet_CM1312nfi_Multifunction_Printer.jpg/960px-HP_Color_LaserJet_CM1312nfi_Multifunction_Printer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Sgroey",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:HP_Color_LaserJet_CM1312nfi_Multifunction_Printer.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 7,
       "rating": 4.5,
       "specs": [
@@ -4182,7 +4626,15 @@
       "price": 1049,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Canon_PIXMA_G_3871_Multifunction_ink-jet_Printer.jpg/960px-Canon_PIXMA_G_3871_Multifunction_ink-jet_Printer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Dinkun Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Canon_PIXMA_G_3871_Multifunction_ink-jet_Printer.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 12,
       "rating": 4.4,
       "specs": [
@@ -4225,7 +4677,15 @@
       "price": 1349,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Xerox_WorkCentre_6605_-7527.jpg/960px-Xerox_WorkCentre_6605_-7527.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Raimond Spekking",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xerox_WorkCentre_6605_-7527.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 9,
       "rating": 4.3,
       "specs": [
@@ -4272,7 +4732,15 @@
       "price": 1499,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/EPSON_L1218_Multifunction_ink-jet_Printer.jpg/960px-EPSON_L1218_Multifunction_ink-jet_Printer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Dinkun Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:EPSON_L1218_Multifunction_ink-jet_Printer.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 10,
       "rating": 4.5,
       "specs": [
@@ -4319,7 +4787,15 @@
       "price": 2399,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Fujitsu_ScanSnap_fi-5100C_tray_open.jpeg/960px-Fujitsu_ScanSnap_fi-5100C_tray_open.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Zuzu",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fujitsu_ScanSnap_fi-5100C_tray_open.jpeg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 5,
       "rating": 4.7,
       "specs": [
@@ -4366,7 +4842,15 @@
       "price": 3699,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Bambu_Lab_X1_Carbon_with_AMS_module.jpg/960px-Bambu_Lab_X1_Carbon_with_AMS_module.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Benlisquare",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bambu_Lab_X1_Carbon_with_AMS_module.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 4,
       "rating": 4.8,
       "specs": [
@@ -4417,7 +4901,15 @@
       "price": 549,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/HP_117A_-_black_laser_toner_cartridge-2409.jpg/960px-HP_117A_-_black_laser_toner_cartridge-2409.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Raimond Spekking",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:HP_117A_-_black_laser_toner_cartridge-2409.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 40,
       "rating": 4.6,
       "specs": [
@@ -4456,7 +4948,15 @@
       "price": 139,
       "currency": "RON",
       "category": "Imprimante",
-      "imageUrl": "/images/categories/imprimante.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/SvetoCopy_A4_%28Bookvoed%29.jpg/960px-SvetoCopy_A4_%28Bookvoed%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Georg Pik",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:SvetoCopy_A4_(Bookvoed).jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 200,
       "rating": 4.7,
       "specs": [
@@ -4495,7 +4995,15 @@
       "price": 1199,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Wi-Fi_mesh_system_Deco_M9_Plus.jpg/960px-Wi-Fi_mesh_system_Deco_M9_Plus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Project Kei",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wi-Fi_mesh_system_Deco_M9_Plus.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 9,
       "rating": 4.6,
       "specs": [
@@ -4542,7 +5050,15 @@
       "price": 1199,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/ASUS_Wi-Fi_ROUTER_TUF_6500.jpg/960px-ASUS_Wi-Fi_ROUTER_TUF_6500.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Dinkun Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:ASUS_Wi-Fi_ROUTER_TUF_6500.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 8,
       "rating": 4.7,
       "specs": [
@@ -4589,7 +5105,15 @@
       "price": 649,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Unifi_AC_Lite_Access_Point.jpg/960px-Unifi_AC_Lite_Access_Point.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "ServerGuruBrisbane",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Unifi_AC_Lite_Access_Point.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 15,
       "rating": 4.7,
       "specs": [
@@ -4640,7 +5164,15 @@
       "price": 2499,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Fortinet_FortiGate_6501F.png/960px-Fortinet_FortiGate_6501F.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Premeditated",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fortinet_FortiGate_6501F.png",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 4,
       "rating": 4.7,
       "specs": [
@@ -4687,7 +5219,15 @@
       "price": 99,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/5_Port_Gigabit_Netzwerk-Switch_TL-SG1005D_08.jpg/960px-5_Port_Gigabit_Netzwerk-Switch_TL-SG1005D_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "www.heimnetzwerke.net",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:5_Port_Gigabit_Netzwerk-Switch_TL-SG1005D_08.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 70,
       "rating": 4.7,
       "specs": [
@@ -4730,7 +5270,15 @@
       "price": 1299,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Ubiquiti_UniFi_Switch_Pro_XG_8_PoE.jpg/960px-Ubiquiti_UniFi_Switch_Pro_XG_8_PoE.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "TaurusEmerald",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ubiquiti_UniFi_Switch_Pro_XG_8_PoE.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 6,
       "rating": 4.6,
       "specs": [
@@ -4777,7 +5325,15 @@
       "price": 1099,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/MikroTik_RouterBoard_RB260GS-7378.jpg/960px-MikroTik_RouterBoard_RB260GS-7378.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Raimond Spekking",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:MikroTik_RouterBoard_RB260GS-7378.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 7,
       "rating": 4.5,
       "specs": [
@@ -4820,7 +5376,15 @@
       "price": 329,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/MikroTik_RouterBoard_RB260GS-7379.jpg/960px-MikroTik_RouterBoard_RB260GS-7379.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Raimond Spekking",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:MikroTik_RouterBoard_RB260GS-7379.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 18,
       "rating": 4.6,
       "specs": [
@@ -4863,7 +5427,15 @@
       "price": 1399,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Intel_X540-T2.jpg/960px-Intel_X540-T2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Dmitry Nosachev",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Intel_X540-T2.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 6,
       "rating": 4.6,
       "specs": [
@@ -4960,7 +5532,15 @@
       "price": 199,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Patch_Panel.jpg/960px-Patch_Panel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Agott at English Wikipedia",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Patch_Panel.jpg",
+        "sourceName": "Wikimedia Commons",
+        "representative": true
+      },
       "stock": 19,
       "rating": 4.4,
       "specs": [

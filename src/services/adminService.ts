@@ -38,6 +38,27 @@ export async function getStoreCounts(): Promise<StoreCounts> {
   }
 }
 
+export interface CustomerProfile {
+  id: string
+  displayName: string
+  email: string
+  createdAt: string
+}
+
+/** Toate profilurile din `users` – doar pentru admini (vezi firestore.rules). */
+export async function getCustomers(): Promise<CustomerProfile[]> {
+  const snapshot = await getDocs(collection(db, 'users'))
+  return snapshot.docs.map((d) => {
+    const data = d.data() as Partial<Omit<CustomerProfile, 'id'>>
+    return {
+      id: d.id,
+      displayName: data.displayName ?? '',
+      email: data.email ?? '',
+      createdAt: data.createdAt ?? '',
+    }
+  })
+}
+
 export async function getMessages(): Promise<ContactMessageRecord[]> {
   const snapshot = await getDocs(collection(db, 'messages'))
   return snapshot.docs

@@ -24,3 +24,8 @@ export function formatCompactPrice(value: number) {
   const number = new Intl.NumberFormat(currentLocale(), { notation: 'compact', maximumFractionDigits: 1 }).format(value)
   return currentLocale() === 'ro-RO' ? `${number} lei` : `${number} RON`
 }
+
+/** Numărul scurt afișat al unei comenzi (primele 8 caractere din ID, majuscule). */
+export function shortOrderId(id: string) {
+  return id.slice(0, 8).toUpperCase()
+}

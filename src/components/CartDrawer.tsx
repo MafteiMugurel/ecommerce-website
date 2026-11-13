@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import { useAuth } from '../context/authContext'
 import { useCart } from '../context/cartContext'
-import { placeOrder } from '../services/orderService'
 import { formatPrice } from '../utils/format'
 import { categoryImage } from '../utils/productImage'
 import ProductImage from './ProductImage'
@@ -11,24 +9,12 @@ import ProductImage from './ProductImage'
 export default function CartDrawer() {
   const { t } = useTranslation()
   const { items, totalPrice, isOpen, closeCart, removeItem, updateQuantity, clearCart } = useCart()
-  const { user } = useAuth()
   const navigate = useNavigate()
-  const [placing, setPlacing] = useState(false)
-  const [orderError, setOrderError] = useState<string | null>(null)
 
-  async function handleCheckout() {
-    setPlacing(true)
-    setOrderError(null)
-    try {
-      const order = await placeOrder(items, user?.uid ?? null)
-      clearCart()
-      closeCart()
-      navigate('/comanda-finalizata', { state: { order } })
-    } catch {
-      setOrderError(t('cart.orderError'))
-    } finally {
-      setPlacing(false)
-    }
+  // Pasul următor: livrare și plată (comanda se plasează abia acolo)
+  function handleCheckout() {
+    closeCart()
+    navigate('/finalizare-comanda')
   }
 
   // Închidere cu tasta Escape
@@ -134,14 +120,12 @@ export default function CartDrawer() {
                 <span>{t('cart.total')}</span>
                 <span>{formatPrice(totalPrice)}</span>
               </div>
-              {orderError && <p className="text-sm text-red-600 dark:text-red-400">{orderError}</p>}
               <button
                 type="button"
                 onClick={handleCheckout}
-                disabled={placing}
                 className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-wait disabled:bg-indigo-400"
               >
-                {placing ? t('cart.placing') : t('cart.checkout')}
+                {t('cart.checkout')}
               </button>
               <button
                 type="button"

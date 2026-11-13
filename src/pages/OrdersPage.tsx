@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
+import OrderShippingSummary from '../components/OrderShippingSummary'
 import OrderStatusBadge from '../components/OrderStatusBadge'
 import ProductImage from '../components/ProductImage'
 import { useAuth } from '../context/authContext'
@@ -77,6 +78,11 @@ export default function OrdersPage() {
                 </span>
               </button>
 
+              {isOpen && (order.shipping || order.paymentMethod) && (
+                <div className="border-t border-gray-100 bg-gray-50 px-5 py-4">
+                  <OrderShippingSummary order={order} />
+                </div>
+              )}
               {isOpen && (
                 <ul className="divide-y divide-gray-100 border-t border-gray-100 px-5">
                   {order.items.map((item) => (

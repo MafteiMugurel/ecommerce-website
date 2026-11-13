@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link, Navigate, useLocation } from 'react-router'
+import OrderShippingSummary from '../components/OrderShippingSummary'
 import ProductImage from '../components/ProductImage'
 import type { Order } from '../types/order'
 import { formatPrice } from '../utils/format'
@@ -25,7 +26,11 @@ export default function OrderSuccessPage() {
           {t('orderSuccess.number')} <span className="font-mono font-semibold text-gray-900">{order.id}</span>
         </p>
 
-        <ul className="mt-8 divide-y divide-gray-100 border-y border-gray-100 text-left">
+        <div className="mt-8 rounded-xl bg-gray-50 p-4">
+          <OrderShippingSummary order={order} />
+        </div>
+
+        <ul className="mt-6 divide-y divide-gray-100 border-y border-gray-100 text-left">
           {order.items.map((item) => (
             <li key={item.productId} className="flex items-center gap-4 py-3">
               <ProductImage src={item.imageUrl} alt={item.name} className="h-14 w-14 shrink-0 rounded-lg bg-gray-100 object-contain" />

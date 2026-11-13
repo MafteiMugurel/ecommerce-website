@@ -8,6 +8,14 @@
   --color-surface: #ffffff;
   /* Culoarea seriei de date din grafice (validată pentru contrast și daltonism) */
   --color-series-1: #2a78d6;
+  /* Paleta categorială pentru graficele cu mai multe serii (pie/donut), în ordine fixă;
+     validată pentru daltonism – nu se reordonează și nu se ciclează */
+  --color-series-2: #eb6834;
+  --color-series-3: #1baf7a;
+  --color-series-4: #eda100;
+  --color-series-5: #e87ba4;
+  /* felia „Altele” – neutră, ca să nu concureze cu categoriile */
+  --color-series-other: #9ca3af;
 }
 
 /*
@@ -19,6 +27,11 @@
   color-scheme: dark;
   --color-surface: oklch(21% 0.03 262);
   --color-series-1: #3987e5;
+  --color-series-2: #d95926;
+  --color-series-3: #199e70;
+  --color-series-4: #c98500;
+  --color-series-5: #d55181;
+  --color-series-other: #6b7280;
   --color-gray-50: oklch(16% 0.028 262);
   --color-gray-100: oklch(26% 0.03 260);
   --color-gray-200: oklch(32% 0.032 258);

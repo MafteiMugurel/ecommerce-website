@@ -26,3 +26,9 @@ dist-ssr
 # Firebase CLI (cache de deploy)
 .firebase/
 firebase-debug.log
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

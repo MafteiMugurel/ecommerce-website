@@ -2,6 +2,8 @@
 
 A full-featured **e-commerce web application** for IT products (PC components, peripherals, audio, gaming, servers, printers, networking, storage), built with **React + TypeScript + Tailwind CSS** on top of **Firebase (Cloud Firestore + Firebase Authentication)**.
 
+**🔗 Live demo: [ecommerce-website-c66da.web.app](https://ecommerce-website-c66da.web.app)** · **📚 Knowledge base: [`docs/`](docs/README.md)** (architecture, database, feature flows, how-to guides – written for non-developers too)
+
 It covers the whole flow of an online store: product catalog, search, cart, checkout, user accounts (email/password and Google), favorites, reviews, order history, **dark/light theme**, **two languages (Romanian / English)** and an **admin dashboard with sales analytics**.
 
 ---
@@ -24,6 +26,7 @@ It covers the whole flow of an online store: product catalog, search, cart, chec
 14. [How the project was built](#14-how-the-project-was-built)
 15. [Design decisions and trade-offs](#15-design-decisions-and-trade-offs)
 16. [Known limitations and next steps](#16-known-limitations-and-next-steps)
+17. [Deployment (Firebase Hosting)](#17-deployment-firebase-hosting)
 
 ---
 
@@ -40,7 +43,7 @@ It covers the whole flow of an online store: product catalog, search, cart, chec
   - **similar products** (same category, closest price);
   - **reviews**: average rating, star distribution, review list.
 - **Shopping cart** (slide-in panel from the right): quantities, removal, total; never exceeds available stock.
-- **Checkout without an account**, followed by an order confirmation page.
+- **Checkout step** (`/finalizare-comanda`): delivery details (name, phone, email, county, city, address – validated) and a **payment method selector** (online card – simulated, card on delivery, cash on delivery, bank transfer); works with or without an account, followed by an order confirmation page.
 - **Favorites** (heart icon) stored in the browser.
 - **Contact form** – messages are stored in the database.
 - **Language switcher (RO / EN)** and **dark / light theme** toggle in the header.
@@ -53,7 +56,8 @@ It covers the whole flow of an online store: product catalog, search, cart, chec
 
 ### Administrators
 - **Admin dashboard** with revenue, orders, average order value, units sold, users, reviews, per-day and per-category charts, top products, low-stock products and contact messages.
-- **Order status management** (Placed → Processing → Shipped → Delivered / Cancelled).
+- **Orders**: full list with search and status filter; **click an order to see its details** (customer, delivery address, payment method, products) and change its status (Placed → Processing → Shipped → Delivered / Cancelled).
+- **Customer statistics** (`/admin/clienti`): registered / new / active / returning customers, conversion rate, average value and orders per customer, sign-ups per day, revenue from registered customers vs guests, customer segments by number of orders (donut charts), top customers and a searchable customer list.
 - **Product management**: add and edit products (name, brand, category, price, stock, description, image URL with live preview, image attribution, specifications) and **quick inline stock editing** in the product table, with search, category and low-stock filters.
 
 ---
@@ -159,9 +163,9 @@ The admin role **cannot be granted from the app** (by design). To make an accoun
 ### 4.7. Demo data (optional)
 For a presentation with a populated dashboard and order history:
 ```bash
-npm run seed-demo -- <admin-email> <admin-password> <test-email> <test-password>
+npm run seed-demo -- <admin-email> <admin-password> <customers-password>
 ```
-It adds 6 favorites and 6 orders (various statuses) for the test user, plus over 100 guest orders spread over the last 90 days.
+It creates **30 fictitious customers** (real Authentication accounts with `firstname.lastname@example.com` emails, the third argument as their password, addresses across Romanian counties, a few favorites each) and **200+ orders** over the last 90 days (~75% from those customers, the rest from guests) with delivery addresses, varied payment methods and age-based statuses. Re-running it creates no duplicates.
 
 > The admin account used here must sign in with email + password and must **not** have multi-factor authentication enabled.
 
@@ -182,9 +186,15 @@ Images can also be changed one by one from the admin product form.
 | `npm run build` | Type-checks with TypeScript and builds the production bundle into `dist/`. |
 | `npm run preview` | Serves the `dist/` build locally. |
 | `npm run lint` | Lints the code with oxlint. |
+| `npm run check` | Lint + build, without publishing. |
+| `npm run test:e2e` | Runs the Playwright end-to-end tests (`test:e2e:ui` for the visual runner, `test:e2e:report` for the last report). |
+| `npm run release` | **Full deployment flow:** lint → e2e tests → build → deploy hosting + Firestore rules; stops at the first failure. |
+| `npm run deploy:all` | Build + deploy hosting and rules, without tests. |
 | `npm run seed` | Imports the catalog from `scripts/data/db.json` into Firestore (see 4.4). |
 | `npm run create-user -- <email> <password> "<name>"` | Creates a user + profile (see 4.5). |
-| `npm run seed-demo -- <admin> <password> <test> <password>` | Generates demo favorites and orders (see 4.7). |
+| `npm run seed-demo -- <admin> <password> <customers-password>` | Creates fictitious customers and demo orders (see 4.7). |
+| `npm run deploy` | Builds and deploys the site to Firebase Hosting (see 17). |
+| `npm run deploy:rules` | Deploys `firestore.rules` from the command line (alternative to pasting them in the console). |
 | `npm run update-images -- <admin-email> <admin-password>` | Updates only `imageUrl` / `imageCredit` of every product from `scripts/data/db.json` (see 4.8). |
 
 The scripts in `scripts/` are Node.js programs that use **the same Firebase SDK** as the app and read the configuration from `.env`.
@@ -208,6 +218,10 @@ URL paths are in Romanian (the store’s primary market); the UI follows the sel
 | `/comanda-finalizata` | Order confirmation | only right after checkout |
 | `/comenzile-mele` | Order history | **signed-in users** |
 | `/admin` | Admin dashboard | **admins only** |
+| `/finalizare-comanda` | Checkout: delivery details + payment method | public (cart not empty) |
+| `/admin/comenzi` | All orders, with search and status filter | **admins only** |
+| `/admin/comenzi/:orderId` | Order details + status change | **admins only** |
+| `/admin/clienti` | Customer statistics and customer list | **admins only** |
 | `/admin/produse` | Product list with inline stock editing | **admins only** |
 | `/admin/produse/nou` | Add a product | **admins only** |
 | `/admin/produse/:productId` | Edit a product | **admins only** |
@@ -237,6 +251,8 @@ Firebase (Firestore + Authentication)
 ```
 ecommerce-website/
 ├── .env                      # Firebase web config (public by design)
+├── firebase.json             # Hosting config (SPA rewrites, cache headers) + rules path
+├── .firebaserc               # default Firebase project
 ├── firestore.rules           # FINAL security rules
 ├── firestore.seed.rules      # TEMPORARY rules, only for the import
 ├── index.html                # includes the script that applies the theme before first paint
@@ -295,7 +311,7 @@ ecommerce-website/
 | `categories` | slug (`componente-pc`) | `name`, `order` (menu position) | admin / import script |
 | `products` | `p001`, `p002`, … | `name`, `brand`, `description`, `price`, `currency`, `category`, `imageUrl`, `imageCredit?`, `stock`, `rating`, `specs[]`, `createdAt` | admins (product form) / import script |
 | `reviews` | auto | `productId`, `userId`, `author`, `rating` (1–5), `comment`, `createdAt` | signed-in users |
-| `orders` | auto | `userId` (or `null` for guests), `items[]`, `totalItems`, `totalPrice`, `status`, `createdAt` | anyone (status `placed`); admins update |
+| `orders` | auto | `userId` (or `null` for guests), `items[]`, `totalItems`, `totalPrice`, `status`, `shipping` (name, phone, email, county, city, address), `paymentMethod`, `createdAt` | anyone (status `placed`, complete address, known payment method); admins update |
 | `messages` | auto | `name`, `email`, `subject`, `message`, `createdAt` | anyone |
 | `users` | Firebase UID | `displayName`, `email`, `createdAt`, `favoriteIds[]` | the account owner |
 | `admins` | Firebase UID | any field (e.g. `role: "admin"`) | **Firebase console only** |
@@ -318,7 +334,7 @@ There is no custom backend, so **all data protection lives in [`firestore.rules`
 | `categories` | anyone | admins only |
 | `products` | anyone | admins only, and the **whole document is validated**: known fields only, non-empty name/brand/category/description, price > 0, stock integer ≥ 0 (applies to stock-only updates too) |
 | `reviews` | anyone | create: signed-in users only, **as themselves** (`userId` = their UID), product must exist, rating 1–5, bounded text length; delete: admins; update: nobody |
-| `orders` | admins (all) / customers (their own only) | create: anyone, but **only with status `placed`** and no extra fields; update/delete: admins |
+| `orders` | admins (all) / customers (their own only) | create: anyone, but **only with status `placed`**, a complete delivery address, a known payment method and no extra fields; update/delete: admins |
 | `messages` | admins only | create: anyone, with bounded lengths |
 | `users` | owner + admins | owner only, **whitelisted fields only** (users cannot add a role to themselves) |
 | `admins` | each user can read their own document | **nobody** from the app |
@@ -371,6 +387,7 @@ The rules were verified from outside the app (direct requests to the Firestore R
 - **8 KPIs**: revenue (excluding cancelled orders), orders and share from registered customers, average order value, units sold, registered users, reviews + average rating, products in catalog + out-of-stock count, contact messages.
 - **Revenue per day** – column chart with a hover/focus tooltip.
 - **Revenue by category** – sorted horizontal bars with direct value labels.
+- **Orders by county** and **payment methods** – donut (pie) charts with a legend showing count and share per slice (top 5 counties + “Other counties”).
 - Each chart has a **Chart / Table** toggle (accessible alternative with the same data).
 - **Top 5 best-selling products**, **orders by status**, **recent orders with inline status change**, **low-stock products (≤ 5)**, **latest contact messages**.
 
@@ -408,6 +425,10 @@ The project was developed incrementally, each step adding one capability:
 14. **Internationalization** – Romanian / English with a header language switcher, typed keys and locale-aware formatting; README rewritten in English.
 15. **External product photos** – images referenced by URL instead of paid storage; freely licensed photos picked from Wikimedia Commons (each one checked to show the exact model) with attribution, plus a fallback to the category illustration.
 16. **Admin product management** – add/edit products and inline stock editing, backed by product validation in the Firestore rules.
+17. **End-to-end tests** – Playwright suite (desktop + mobile) covering catalog, product page, cart, checkout, preferences and auth guards, without writing to the database.
+18. **Checkout step and demo customers** – delivery address + payment method selector, validated by the rules; fictitious customers and orders for realistic statistics; dashboard charts by county and payment method.
+19. **Admin order details** – order list with filters and a details page per order.
+20. **Knowledge base** – `docs/` folder for non-developers; one-command release flow (`npm run release`).
 
 ---
 
@@ -447,4 +468,32 @@ The project was developed incrementally, each step adding one capability:
 - Cart synced with the account; shipping addresses; payments (e.g. Stripe).
 - Sorting, pagination and filters (price, brand) on the product list.
 - Automated tests (unit tests for the cart reducer and search; Firestore rules tests with the Firebase emulator).
-- Deployment (e.g. Firebase Hosting) and route-level code splitting.
+- Route-level code splitting and a CI pipeline (build + lint + deploy on push).
+
+---
+
+## 17. Deployment (Firebase Hosting)
+
+The app is a static single-page application hosted on **Firebase Hosting** (free tier, CDN, HTTPS):
+**https://ecommerce-website-c66da.web.app**
+
+### One-time setup
+```bash
+npm install -g firebase-tools   # Firebase CLI
+firebase login                  # opens the browser to sign in with the Google account that owns the project
+```
+The project is already linked in `.firebaserc` (`ecommerce-website-c66da`).
+
+### Deploy
+```bash
+npm run release         # recommended: lint → e2e tests → build → hosting + rules (stops at the first failure)
+npm run deploy          # build + hosting only
+npm run deploy:rules    # Firestore rules only
+```
+The full flow, with a diagram and troubleshooting, is in [docs/09-operations-and-deployment.md](docs/09-operations-and-deployment.md#deployment-flow).
+
+### Configuration ([`firebase.json`](firebase.json))
+- **`public: dist`** – the Vite production build is what gets uploaded.
+- **Rewrite `** → /index.html`** – every URL is served by the React app, so deep links such as `/produs/p001` or `/admin/produse` work on refresh instead of returning 404.
+- **Cache headers** – files in `/assets/` have content hashes in their names, so they are cached for a year (`immutable`); `index.html` is never cached, so a new deploy is picked up immediately.
+- `*.web.app` and `*.firebaseapp.com` are authorized domains by default, so **Google sign-in works** on the live site without extra setup. A custom domain must be added under *Authentication → Settings → Authorized domains*.
