@@ -1,4 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react'
+import { Link, useLocation } from 'react-router'
+import { useAuth } from '../context/authContext'
 import { addReview, getReviews } from '../services/reviewService'
 import type { Review } from '../types/review'
 import StarRating from './StarRating'
@@ -12,19 +14,27 @@ function formatDate(iso: string) {
 
 export default function ReviewsSection({ productId }: { productId: string }) {
   const [reviews, setReviews] = useState<Review[]>([])
+  const { user } = useAuth()
   const [loading, setLoading] = useState(true)
   const [rating, setRating] = useState(0)
   const [hoverRating, setHoverRating] = useState(0)
   const [formError, setFormError] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const { pathname } = useLocation()
 
   useEffect(() => {
     let active = true
-    getReviews(productId).then((result) => {
-      if (!active) return
-      setReviews(result)
-      setLoading(false)
-    })
+    getReviews(productId)
+      .then((result) => {
+        if (active) setReviews(result)
+      })
+      .catch(() => {
+        if (active) setReviews([])
+      })
+      .finally(() => {
+        if (active) setLoading(false)
+      })
     return () => {
       active = false
     }
@@ -52,12 +62,21 @@ export default function ReviewsSection({ productId }: { productId: string }) {
       return
     }
 
-    const review = await addReview({ productId, author, rating, comment })
-    setReviews((current) => [review, ...current])
-    form.reset()
-    setRating(0)
+    if (!user) return
+
+    setSubmitting(true)
     setFormError(null)
-    setSubmitted(true)
+    try {
+      const review = await addReview({ productId, userId: user.uid, author, rating, comment })
+      setReviews((current) => [review, ...current])
+      form.reset()
+      setRating(0)
+      setSubmitted(true)
+    } catch {
+      setFormError('Recenzia nu a putut fi publicată. Încearcă din nou.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -67,7 +86,7 @@ export default function ReviewsSection({ productId }: { productId: string }) {
       <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_2fr]">
         {/* Rezumat + formular */}
         <div className="space-y-6">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6">
+          <div className="rounded-2xl border border-gray-200 bg-surface p-6">
             {loading ? (
               <p className="text-sm text-gray-500">Se încarcă...</p>
             ) : (
@@ -97,12 +116,25 @@ export default function ReviewsSection({ productId }: { productId: string }) {
             )}
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl border border-gray-200 bg-white p-6">
+          {!user ? (
+            <div className="rounded-2xl border border-gray-200 bg-surface p-6 text-center">
+              <h3 className="font-semibold text-gray-900">Scrie o recenzie</h3>
+              <p className="mt-2 text-sm text-gray-600">Trebuie să fii autentificat ca să lași o recenzie.</p>
+              <Link
+                to="/autentificare"
+                state={{ from: `${pathname}#recenzii` }}
+                className="mt-4 inline-block rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-medium text-white hover:bg-indigo-700"
+              >
+                Intră în cont
+              </Link>
+            </div>
+          ) : (
+          <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl border border-gray-200 bg-surface p-6">
             <h3 className="font-semibold text-gray-900">Scrie o recenzie</h3>
             {submitted && (
-              <p className="rounded-lg bg-green-50 px-3 py-2 text-sm text-green-700">Mulțumim pentru recenzie!</p>
+              <p className="rounded-lg bg-green-50 dark:bg-green-950/40 px-3 py-2 text-sm text-green-700 dark:text-green-300">Mulțumim pentru recenzie!</p>
             )}
-            {formError && <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{formError}</p>}
+            {formError && <p className="rounded-lg bg-red-50 dark:bg-red-950/40 px-3 py-2 text-sm text-red-700 dark:text-red-300">{formError}</p>}
 
             <div>
               <span className="block text-sm font-medium text-gray-700">Nota ta</span>
@@ -124,7 +156,14 @@ export default function ReviewsSection({ productId }: { productId: string }) {
             </div>
             <label className="block text-sm font-medium text-gray-700">
               Nume
-              <input name="author" maxLength={40} className={inputClass} />
+              {/* key: dacă se schimbă utilizatorul, câmpul se completează cu noul nume */}
+              <input
+                key={user.uid}
+                name="author"
+                maxLength={40}
+                defaultValue={user.displayName}
+                className={inputClass}
+              />
             </label>
             <label className="block text-sm font-medium text-gray-700">
               Comentariu
@@ -132,11 +171,13 @@ export default function ReviewsSection({ productId }: { productId: string }) {
             </label>
             <button
               type="submit"
-              className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700"
+              disabled={submitting}
+              className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-wait disabled:bg-indigo-400"
             >
-              Publică recenzia
+              {submitting ? 'Se publică...' : 'Publică recenzia'}
             </button>
           </form>
+          )}
         </div>
 
         {/* Lista de recenzii */}
@@ -146,10 +187,10 @@ export default function ReviewsSection({ productId }: { productId: string }) {
           )}
           <ul className="space-y-4">
             {reviews.map((review) => (
-              <li key={review.id} className="rounded-2xl border border-gray-200 bg-white p-5">
+              <li key={review.id} className="rounded-2xl border border-gray-200 bg-surface p-5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100 text-sm font-semibold text-indigo-700">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-sm font-semibold text-indigo-700 dark:text-indigo-300">
                       {review.author.charAt(0).toUpperCase()}
                     </span>
                     <div>

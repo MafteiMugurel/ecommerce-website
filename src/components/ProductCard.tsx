@@ -22,7 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   else if (limitReached) buttonLabel = 'Stoc maxim în coș'
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
+    <article className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-surface shadow-sm transition hover:shadow-md">
       <div className="relative aspect-square overflow-hidden bg-gray-100">
         <Link to={productUrl} tabIndex={-1} aria-hidden="true">
           <img
@@ -32,7 +32,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
           />
         </Link>
-        <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-gray-700">
+        <span className="absolute left-3 top-3 rounded-full bg-surface/90 px-2.5 py-1 text-xs font-medium text-gray-700">
           {product.category}
         </span>
         <button
@@ -41,7 +41,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           aria-pressed={favorite}
           aria-label={favorite ? 'Elimină de la favorite' : 'Adaugă la favorite'}
           title={favorite ? 'Elimină de la favorite' : 'Adaugă la favorite'}
-          className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 shadow-sm transition hover:scale-110"
+          className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-surface/90 shadow-sm transition hover:scale-110"
         >
           <svg
             className={`h-5 w-5 ${favorite ? 'fill-red-500 text-red-500' : 'fill-none text-gray-600'}`}
@@ -64,9 +64,9 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col gap-1.5 p-4">
-        <span className="text-xs font-medium uppercase tracking-wide text-indigo-600">{product.brand}</span>
+        <span className="text-xs font-medium uppercase tracking-wide text-indigo-600 dark:text-indigo-400">{product.brand}</span>
         <h2 className="text-base font-semibold text-gray-900">
-          <Link to={productUrl} className="hover:text-indigo-600">
+          <Link to={productUrl} className="hover:text-indigo-600 dark:hover:text-indigo-400">
             {product.name}
           </Link>
         </h2>

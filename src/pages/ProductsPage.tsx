@@ -16,7 +16,7 @@ export default function ProductsPage() {
     return (
       <section className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8">
         <h1 className="text-2xl font-bold text-gray-900">Categoria nu există</h1>
-        <Link to="/" className="mt-4 inline-block text-sm font-medium text-indigo-600 hover:underline">
+        <Link to="/" className="mt-4 inline-block text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
           Vezi toate produsele
         </Link>
       </section>
@@ -35,7 +35,7 @@ export default function ProductsPage() {
       </div>
 
       {isLoading && <p className="text-gray-500">Se încarcă produsele...</p>}
-      {error && <p className="text-red-600">{error}</p>}
+      {error && <p className="text-red-600 dark:text-red-400">{error}</p>}
 
       {!isLoading && !error && visibleProducts.length === 0 && (
         <p className="text-gray-500">Nu există produse în această categorie momentan.</p>

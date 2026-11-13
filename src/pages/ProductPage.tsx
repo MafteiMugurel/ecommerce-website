@@ -22,9 +22,9 @@ function getSimilarProducts(product: Product, products: Product[]) {
 }
 
 function StockStatus({ stock }: { stock: number }) {
-  if (stock === 0) return <span className="font-medium text-red-600">Stoc epuizat</span>
-  if (stock <= 5) return <span className="font-medium text-amber-600">Stoc limitat – doar {stock} buc.</span>
-  return <span className="font-medium text-green-600">În stoc</span>
+  if (stock === 0) return <span className="font-medium text-red-600 dark:text-red-400">Stoc epuizat</span>
+  if (stock <= 5) return <span className="font-medium text-amber-600 dark:text-amber-400">Stoc limitat – doar {stock} buc.</span>
+  return <span className="font-medium text-green-600 dark:text-green-400">În stoc</span>
 }
 
 export default function ProductPage() {
@@ -36,7 +36,7 @@ export default function ProductPage() {
     return <p className="mx-auto max-w-7xl px-4 py-8 text-gray-500 sm:px-6 lg:px-8">Se încarcă produsul...</p>
   }
   if (error) {
-    return <p className="mx-auto max-w-7xl px-4 py-8 text-red-600 sm:px-6 lg:px-8">{error}</p>
+    return <p className="mx-auto max-w-7xl px-4 py-8 text-red-600 dark:text-red-400 sm:px-6 lg:px-8">{error}</p>
   }
 
   const product = products.find((p) => p.id === productId)
@@ -44,7 +44,7 @@ export default function ProductPage() {
     return (
       <section className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8">
         <h1 className="text-2xl font-bold text-gray-900">Produsul nu există</h1>
-        <Link to="/" className="mt-4 inline-block text-sm font-medium text-indigo-600 hover:underline">
+        <Link to="/" className="mt-4 inline-block text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
           Vezi toate produsele
         </Link>
       </section>
@@ -58,11 +58,11 @@ export default function ProductPage() {
     <div className="mx-auto max-w-7xl space-y-14 px-4 py-8 sm:px-6 lg:px-8">
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="-mb-8 text-sm text-gray-500">
-        <Link to="/" className="hover:text-indigo-600">Produse</Link>
+        <Link to="/" className="hover:text-indigo-600 dark:hover:text-indigo-400">Produse</Link>
         {category && (
           <>
             <span className="mx-2">/</span>
-            <Link to={`/categorie/${category.id}`} className="hover:text-indigo-600">{category.name}</Link>
+            <Link to={`/categorie/${category.id}`} className="hover:text-indigo-600 dark:hover:text-indigo-400">{category.name}</Link>
           </>
         )}
         <span className="mx-2">/</span>
@@ -104,15 +104,15 @@ function ProductDetails({ product }: { product: Product }) {
 
   return (
     <section className="grid gap-8 md:grid-cols-2 lg:gap-12">
-      <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+      <div className="overflow-hidden rounded-2xl border border-gray-200 bg-surface">
         <img src={product.imageUrl} alt={product.name} className="aspect-square w-full object-cover" />
       </div>
 
       <div className="flex flex-col">
-        <span className="text-sm font-medium uppercase tracking-wide text-indigo-600">{product.brand}</span>
+        <span className="text-sm font-medium uppercase tracking-wide text-indigo-600 dark:text-indigo-400">{product.brand}</span>
         <h1 className="mt-1 text-2xl font-bold text-gray-900 sm:text-3xl">{product.name}</h1>
 
-        <a href="#recenzii" className="mt-3 flex items-center gap-2 text-sm text-gray-600 hover:text-indigo-600">
+        <a href="#recenzii" className="mt-3 flex items-center gap-2 text-sm text-gray-600 hover:text-indigo-600 dark:hover:text-indigo-400">
           <StarRating rating={product.rating} />
           <span>{product.rating.toFixed(1)}</span>
           <span className="underline">vezi recenziile</span>
@@ -164,7 +164,7 @@ function ProductDetails({ product }: { product: Product }) {
             onClick={() => toggleFavorite(product.id)}
             aria-pressed={favorite}
             className={`flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition ${
-              favorite ? 'border-red-200 bg-red-50 text-red-600' : 'border-gray-300 text-gray-700 hover:bg-gray-100'
+              favorite ? 'border-red-200 bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400' : 'border-gray-300 text-gray-700 hover:bg-gray-100'
             }`}
           >
             <svg
@@ -194,7 +194,7 @@ function ProductDetails({ product }: { product: Product }) {
               </li>
             ))}
           </ul>
-          <a href="#specificatii" className="mt-3 inline-block text-sm font-medium text-indigo-600 hover:underline">
+          <a href="#specificatii" className="mt-3 inline-block text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
             Vezi toate specificațiile
           </a>
         </div>

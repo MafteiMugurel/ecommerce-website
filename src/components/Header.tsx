@@ -4,6 +4,8 @@ import { useCart } from '../context/cartContext'
 import { useFavorites } from '../context/favoritesContext'
 import MenuDrawer from './MenuDrawer'
 import SearchBar from './SearchBar'
+import ThemeToggle from './ThemeToggle'
+import UserMenu from './UserMenu'
 
 function CountBadge({ count }: { count: number }) {
   if (count === 0) return null
@@ -22,7 +24,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b border-gray-200 bg-white">
+      <header className="sticky top-0 z-30 border-b border-gray-200 bg-surface">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
           <div className="flex shrink-0 items-center gap-2">
             <button
@@ -37,7 +39,7 @@ export default function Header() {
               </svg>
               <span className="hidden text-sm font-medium lg:inline">Categorii</span>
             </button>
-            <Link to="/" className="text-xl font-bold text-indigo-600">
+            <Link to="/" className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
               IT Shop
             </Link>
           </div>
@@ -45,7 +47,9 @@ export default function Header() {
           {/* Căutare – desktop/tabletă */}
           <SearchBar className="mx-auto hidden w-full max-w-xl md:block" />
 
-          <div className="ml-auto flex shrink-0 items-center gap-1 md:ml-0">
+          <div className="ml-auto flex shrink-0 items-center gap-0.5 sm:gap-1 md:ml-0">
+            <ThemeToggle />
+            <UserMenu />
             <Link
               to="/favorite"
               className="relative rounded-full p-2 text-gray-700 transition hover:bg-gray-100"

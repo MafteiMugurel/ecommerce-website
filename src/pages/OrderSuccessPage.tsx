@@ -10,8 +10,8 @@ export default function OrderSuccessPage() {
 
   return (
     <section className="mx-auto max-w-2xl px-4 py-12 sm:px-6">
-      <div className="rounded-2xl border border-gray-200 bg-white p-8 text-center shadow-sm">
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-3xl text-green-600">
+      <div className="rounded-2xl border border-gray-200 bg-surface p-8 text-center shadow-sm">
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/40 text-3xl text-green-600 dark:text-green-400">
           ✓
         </div>
         <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">Felicitări pentru comandă!</h1>
@@ -23,15 +23,15 @@ export default function OrderSuccessPage() {
         </p>
 
         <ul className="mt-8 divide-y divide-gray-100 border-y border-gray-100 text-left">
-          {order.items.map(({ product, quantity }) => (
-            <li key={product.id} className="flex items-center gap-4 py-3">
-              <img src={product.imageUrl} alt={product.name} className="h-14 w-14 rounded-lg object-cover" />
+          {order.items.map((item) => (
+            <li key={item.productId} className="flex items-center gap-4 py-3">
+              <img src={item.imageUrl} alt={item.name} className="h-14 w-14 rounded-lg object-cover" />
               <div className="flex-1">
-                <p className="text-sm font-medium text-gray-900">{product.name}</p>
-                <p className="text-xs text-gray-500">Cantitate: {quantity}</p>
+                <p className="text-sm font-medium text-gray-900">{item.name}</p>
+                <p className="text-xs text-gray-500">Cantitate: {item.quantity}</p>
               </div>
               <span className="text-sm font-semibold text-gray-900">
-                {formatPrice(product.price * quantity, product.currency)}
+                {formatPrice(item.price * item.quantity, item.currency)}
               </span>
             </li>
           ))}

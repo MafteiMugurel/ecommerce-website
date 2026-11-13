@@ -37,7 +37,7 @@ export default function SearchBar({ className = '' }: { className?: string }) {
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Caută produse, branduri..."
         aria-label="Caută produse"
-        className="w-full rounded-full border border-gray-300 bg-gray-50 py-2 pl-10 pr-4 text-sm text-gray-900 focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-200"
+        className="w-full rounded-full border border-gray-300 bg-gray-50 py-2 pl-10 pr-4 text-sm text-gray-900 focus:border-indigo-500 focus:bg-surface focus:outline-none focus:ring-2 focus:ring-indigo-200"
       />
     </form>
   )

@@ -22,10 +22,10 @@ export default function FavoritesPage() {
       </div>
 
       {loading && <p className="text-gray-500">Se încarcă...</p>}
-      {error && <p className="text-red-600">{error}</p>}
+      {error && <p className="text-red-600 dark:text-red-400">{error}</p>}
 
       {!loading && !error && favorites.length === 0 && (
-        <div className="rounded-2xl border border-dashed border-gray-300 bg-white px-6 py-16 text-center">
+        <div className="rounded-2xl border border-dashed border-gray-300 bg-surface px-6 py-16 text-center">
           <p className="text-4xl text-gray-300">♡</p>
           <p className="mt-3 text-gray-600">Nu ai niciun produs favorit încă.</p>
           <p className="text-sm text-gray-500">Apasă pe inimioara de pe un produs ca să-l salvezi aici.</p>

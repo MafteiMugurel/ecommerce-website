@@ -21,7 +21,7 @@ export default function ProductSpecs({ product }: { product: Product }) {
 
         <div>
           <h3 className="font-semibold text-gray-900">Specificații tehnice</h3>
-          <div className="mt-2 overflow-hidden rounded-2xl border border-gray-200 bg-white">
+          <div className="mt-2 overflow-hidden rounded-2xl border border-gray-200 bg-surface">
             <table className="w-full text-left text-sm">
               <tbody className="divide-y divide-gray-100">
                 {rows.map((row) => (

@@ -27,7 +27,7 @@ export default function MenuDrawer({ isOpen, onClose }: MenuDrawerProps) {
       <aside
         role="dialog"
         aria-label="Meniu categorii"
-        className={`absolute left-0 top-0 flex h-full w-full max-w-xs flex-col bg-white shadow-xl transition-transform duration-300 ${
+        className={`absolute left-0 top-0 flex h-full w-full max-w-xs flex-col bg-surface shadow-xl transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >

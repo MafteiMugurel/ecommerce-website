@@ -1,13 +1,24 @@
-import db from '../data/db.json'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../lib/firebase'
 import type { Product } from '../types/product'
 
-// Mock pentru Firestore: datele vin din db.json.
-// Când conectăm Firebase, doar implementarea de aici se schimbă
-// (ex. getDocs(collection(firestore, 'products'))), restul aplicației rămâne la fel.
+// Catalogul se citește o singură dată pe sesiune și se păstrează în memorie,
+// ca să nu citim cele 100 de documente la fiecare schimbare de pagină.
+let cache: Promise<Product[]> | null = null
 
-const MOCK_LATENCY_MS = 300
+async function fetchProducts(): Promise<Product[]> {
+  const snapshot = await getDocs(collection(db, 'products'))
+  return snapshot.docs
+    .map((doc) => ({ ...(doc.data() as Omit<Product, 'id'>), id: doc.id }))
+    .sort((a, b) => a.id.localeCompare(b.id))
+}
 
-export async function getProducts(): Promise<Product[]> {
-  await new Promise((resolve) => setTimeout(resolve, MOCK_LATENCY_MS))
-  return db.products as Product[]
+export function getProducts(): Promise<Product[]> {
+  if (!cache) {
+    cache = fetchProducts().catch((error: unknown) => {
+      cache = null // la eroare, următoarea încercare citește din nou
+      throw error
+    })
+  }
+  return cache
 }

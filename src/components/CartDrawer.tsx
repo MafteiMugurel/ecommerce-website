@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
+import { useAuth } from '../context/authContext'
 import { useCart } from '../context/cartContext'
 import { placeOrder } from '../services/orderService'
 import { formatPrice } from '../utils/format'
 
 export default function CartDrawer() {
   const { items, totalPrice, isOpen, closeCart, removeItem, updateQuantity, clearCart } = useCart()
+  const { user } = useAuth()
   const navigate = useNavigate()
   const [placing, setPlacing] = useState(false)
   const [orderError, setOrderError] = useState<string | null>(null)
@@ -14,7 +16,7 @@ export default function CartDrawer() {
     setPlacing(true)
     setOrderError(null)
     try {
-      const order = await placeOrder(items)
+      const order = await placeOrder(items, user?.uid ?? null)
       clearCart()
       closeCart()
       navigate('/comanda-finalizata', { state: { order } })
@@ -45,7 +47,7 @@ export default function CartDrawer() {
       <aside
         role="dialog"
         aria-label="Coș de cumpărături"
-        className={`absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-white shadow-xl transition-transform duration-300 ${
+        className={`absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-surface shadow-xl transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -64,7 +66,7 @@ export default function CartDrawer() {
         {items.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-3 p-6 text-center">
             <p className="text-gray-500">Coșul este gol.</p>
-            <button type="button" onClick={closeCart} className="text-sm font-medium text-indigo-600 hover:underline">
+            <button type="button" onClick={closeCart} className="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
               Continuă cumpărăturile
             </button>
           </div>
@@ -108,7 +110,7 @@ export default function CartDrawer() {
                       <button
                         type="button"
                         onClick={() => removeItem(product.id)}
-                        className="text-xs font-medium text-red-600 hover:underline"
+                        className="text-xs font-medium text-red-600 dark:text-red-400 hover:underline"
                       >
                         Șterge
                       </button>
@@ -123,7 +125,7 @@ export default function CartDrawer() {
                 <span>Total</span>
                 <span>{formatPrice(totalPrice)}</span>
               </div>
-              {orderError && <p className="text-sm text-red-600">{orderError}</p>}
+              {orderError && <p className="text-sm text-red-600 dark:text-red-400">{orderError}</p>}
               <button
                 type="button"
                 onClick={handleCheckout}

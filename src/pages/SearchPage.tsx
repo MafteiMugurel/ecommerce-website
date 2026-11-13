@@ -21,7 +21,7 @@ export default function SearchPage() {
 
       {!query && <p className="text-gray-500">Scrie în bara de căutare ce produs cauți.</p>}
       {query && loading && <p className="text-gray-500">Se caută...</p>}
-      {error && <p className="text-red-600">{error}</p>}
+      {error && <p className="text-red-600 dark:text-red-400">{error}</p>}
       {query && !loading && !error && results.length === 0 && (
         <p className="text-gray-500">Nu am găsit niciun produs. Încearcă alt termen sau verifică ortografia.</p>
       )}
