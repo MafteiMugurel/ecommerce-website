@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#fce7f3"/>
+  <g fill="none" stroke="#be185d" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M190 200h220a90 90 0 0 1 88 108l-22 100a40 40 0 0 1-70 16l-46-56H240l-46 56a40 40 0 0 1-70-16l-22-100a90 90 0 0 1 88-108z"/>
+    <path d="M210 270v60M180 300h60"/>
+    <circle cx="380" cy="280" r="10"/><circle cx="420" cy="320" r="10"/>
+  </g>
+  <text x="300" y="530" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="600" fill="#be185d">Gaming</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#e0e7ff"/>
+  <g fill="none" stroke="#4338ca" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="190" y="150" width="220" height="220" rx="20"/>
+    <rect x="250" y="210" width="100" height="100" rx="8"/>
+    <path d="M230 150v-40M300 150v-40M370 150v-40M230 410v-40M300 410v-40M370 410v-40M190 190h-40M190 260h-40M190 330h-40M450 190h-40M450 260h-40M450 330h-40"/>
+  </g>
+  <text x="300" y="530" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="600" fill="#4338ca">Componente PC</text>
+</svg>

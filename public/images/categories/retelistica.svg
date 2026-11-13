@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#ede9fe"/>
+  <g fill="none" stroke="#6d28d9" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="120" y="300" width="360" height="110" rx="18"/>
+    <path d="M220 300l-40-120M380 300l40-120"/>
+    <path d="M250 200a70 70 0 0 1 100 0M220 165a115 115 0 0 1 160 0"/>
+    <circle cx="190" cy="355" r="9"/><circle cx="230" cy="355" r="9"/><path d="M300 355h130"/>
+  </g>
+  <text x="300" y="530" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="600" fill="#6d28d9">Rețelistică</text>
+</svg>
