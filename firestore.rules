@@ -36,9 +36,26 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    // Un produs valid: doar câmpurile cunoscute, preț pozitiv, stoc întreg >= 0.
+    // Se verifică documentul complet după scriere, deci și la modificarea doar a stocului.
+    function validProduct(data) {
+      return data.keys().hasOnly(['name', 'brand', 'description', 'price', 'currency', 'category',
+                                  'imageUrl', 'imageCredit', 'stock', 'rating', 'specs', 'createdAt'])
+        && isString(data.name, 1, 200)
+        && isString(data.brand, 1, 80)
+        && isString(data.description, 1, 1000)
+        && isString(data.category, 1, 80)
+        && data.price is number && data.price > 0
+        && data.stock is int && data.stock >= 0
+        && data.imageUrl is string
+        && data.specs is list && data.specs.size() <= 50
+        && (!('imageCredit' in data) || data.imageCredit is map);
+    }
+
     match /products/{productId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow create, update: if isAdmin() && validProduct(request.resource.data);
+      allow delete: if isAdmin();
     }
 
     // Recenzii: oricine citește; utilizatorii autentificați scriu în numele lor; adminii pot șterge.

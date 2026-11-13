@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import { useAuth } from '../context/authContext'
 import { useCart } from '../context/cartContext'
 import { placeOrder } from '../services/orderService'
 import { formatPrice } from '../utils/format'
+import { categoryImage } from '../utils/productImage'
+import ProductImage from './ProductImage'
 
 export default function CartDrawer() {
+  const { t } = useTranslation()
   const { items, totalPrice, isOpen, closeCart, removeItem, updateQuantity, clearCart } = useCart()
   const { user } = useAuth()
   const navigate = useNavigate()
@@ -21,7 +25,7 @@ export default function CartDrawer() {
       closeCart()
       navigate('/comanda-finalizata', { state: { order } })
     } catch {
-      setOrderError('Comanda nu a putut fi plasată. Încearcă din nou.')
+      setOrderError(t('cart.orderError'))
     } finally {
       setPlacing(false)
     }
@@ -46,18 +50,18 @@ export default function CartDrawer() {
 
       <aside
         role="dialog"
-        aria-label="Coș de cumpărături"
+        aria-label={t('cart.dialogLabel')}
         className={`absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-surface shadow-xl transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex items-center justify-between border-b border-gray-200 px-5 py-4">
-          <h2 className="text-lg font-semibold text-gray-900">Coșul tău</h2>
+          <h2 className="text-lg font-semibold text-gray-900">{t('cart.title')}</h2>
           <button
             type="button"
             onClick={closeCart}
             className="rounded-full p-1.5 text-gray-500 hover:bg-gray-100"
-            aria-label="Închide coșul"
+            aria-label={t('cart.close')}
           >
             ✕
           </button>
@@ -65,9 +69,9 @@ export default function CartDrawer() {
 
         {items.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-3 p-6 text-center">
-            <p className="text-gray-500">Coșul este gol.</p>
+            <p className="text-gray-500">{t('cart.empty')}</p>
             <button type="button" onClick={closeCart} className="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
-              Continuă cumpărăturile
+              {t('cart.continueShopping')}
             </button>
           </div>
         ) : (
@@ -75,7 +79,12 @@ export default function CartDrawer() {
             <ul className="flex-1 divide-y divide-gray-100 overflow-y-auto px-5">
               {items.map(({ product, quantity }) => (
                 <li key={product.id} className="flex gap-4 py-4">
-                  <img src={product.imageUrl} alt={product.name} className="h-20 w-20 rounded-lg object-cover" />
+                  <ProductImage
+                    src={product.imageUrl}
+                    fallbackSrc={categoryImage(product.category)}
+                    alt={product.name}
+                    className="h-20 w-20 shrink-0 rounded-lg bg-gray-100 object-contain"
+                  />
 
                   <div className="flex flex-1 flex-col">
                     <div className="flex justify-between gap-2">
@@ -84,7 +93,7 @@ export default function CartDrawer() {
                         {formatPrice(product.price * quantity, product.currency)}
                       </span>
                     </div>
-                    <span className="text-xs text-gray-500">{formatPrice(product.price, product.currency)} / buc.</span>
+                    <span className="text-xs text-gray-500">{t('cart.perUnit', { price: formatPrice(product.price, product.currency) })}</span>
 
                     <div className="mt-auto flex items-center justify-between pt-2">
                       <div className="flex items-center rounded-lg border border-gray-300">
@@ -92,7 +101,7 @@ export default function CartDrawer() {
                           type="button"
                           onClick={() => updateQuantity(product.id, quantity - 1)}
                           className="px-2.5 py-1 text-gray-600 hover:bg-gray-100"
-                          aria-label="Scade cantitatea"
+                          aria-label={t('product.decrease')}
                         >
                           −
                         </button>
@@ -102,7 +111,7 @@ export default function CartDrawer() {
                           onClick={() => updateQuantity(product.id, quantity + 1)}
                           disabled={quantity >= product.stock}
                           className="px-2.5 py-1 text-gray-600 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
-                          aria-label="Crește cantitatea"
+                          aria-label={t('product.increase')}
                         >
                           +
                         </button>
@@ -112,7 +121,7 @@ export default function CartDrawer() {
                         onClick={() => removeItem(product.id)}
                         className="text-xs font-medium text-red-600 dark:text-red-400 hover:underline"
                       >
-                        Șterge
+                        {t('cart.remove')}
                       </button>
                     </div>
                   </div>
@@ -122,7 +131,7 @@ export default function CartDrawer() {
 
             <div className="space-y-3 border-t border-gray-200 px-5 py-4">
               <div className="flex justify-between text-base font-semibold text-gray-900">
-                <span>Total</span>
+                <span>{t('cart.total')}</span>
                 <span>{formatPrice(totalPrice)}</span>
               </div>
               {orderError && <p className="text-sm text-red-600 dark:text-red-400">{orderError}</p>}
@@ -132,14 +141,14 @@ export default function CartDrawer() {
                 disabled={placing}
                 className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-wait disabled:bg-indigo-400"
               >
-                {placing ? 'Se plasează comanda...' : 'Finalizează comanda'}
+                {placing ? t('cart.placing') : t('cart.checkout')}
               </button>
               <button
                 type="button"
                 onClick={clearCart}
                 className="w-full text-sm text-gray-500 hover:text-gray-700 hover:underline"
               >
-                Golește coșul
+                {t('cart.clear')}
               </button>
             </div>
           </>

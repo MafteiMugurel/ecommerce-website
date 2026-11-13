@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useLocation } from 'react-router'
 import { useAuth } from '../context/authContext'
 
@@ -17,6 +18,7 @@ function UserIcon() {
 }
 
 export default function UserMenu() {
+  const { t } = useTranslation()
   const { user, initializing, isAdmin, logout } = useAuth()
   const { pathname, search } = useLocation()
   const [open, setOpen] = useState(false)
@@ -52,11 +54,11 @@ export default function UserMenu() {
         to="/autentificare"
         state={onAuthPage ? undefined : { from: pathname + search }}
         className={`${iconButtonClass} flex items-center gap-2`}
-        aria-label="Intră în cont"
-        title="Intră în cont"
+        aria-label={t('account.login')}
+        title={t('account.login')}
       >
         <UserIcon />
-        <span className="hidden text-sm font-medium xl:inline">Intră în cont</span>
+        <span className="hidden text-sm font-medium xl:inline">{t('account.login')}</span>
       </Link>
     )
   }
@@ -71,7 +73,7 @@ export default function UserMenu() {
         className="flex items-center gap-2 rounded-full p-1 pr-2 text-gray-700 transition hover:bg-gray-100"
         aria-haspopup="menu"
         aria-expanded={open}
-        aria-label={`Contul meu (${user.displayName})`}
+        aria-label={t('account.menuLabel', { name: user.displayName })}
       >
         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 text-sm font-semibold text-white">
           {initial}
@@ -95,7 +97,7 @@ export default function UserMenu() {
               onClick={() => setOpen(false)}
               className="block border-b border-gray-100 px-4 py-2.5 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:bg-gray-100"
             >
-              Panou admin
+              {t('account.adminPanel')}
             </Link>
           )}
           <Link
@@ -104,7 +106,7 @@ export default function UserMenu() {
             onClick={() => setOpen(false)}
             className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-100"
           >
-            Comenzile mele
+            {t('account.myOrders')}
           </Link>
           <Link
             to="/favorite"
@@ -112,7 +114,7 @@ export default function UserMenu() {
             onClick={() => setOpen(false)}
             className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-100"
           >
-            Favoritele mele
+            {t('account.myFavorites')}
           </Link>
           <button
             type="button"
@@ -123,7 +125,7 @@ export default function UserMenu() {
             }}
             className="block w-full border-t border-gray-100 px-4 py-2.5 text-left text-sm text-red-600 dark:text-red-400 hover:bg-gray-100"
           >
-            Deconectare
+            {t('account.logout')}
           </button>
         </div>
       )}

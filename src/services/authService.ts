@@ -10,6 +10,7 @@ import {
   type User as FirebaseUser,
 } from 'firebase/auth'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
+import i18n from '../i18n'
 import { auth, db } from '../lib/firebase'
 import type { User } from '../types/user'
 
@@ -83,28 +84,28 @@ export function getAuthErrorMessage(error: unknown) {
   if (error instanceof FirebaseError) {
     switch (error.code) {
       case 'auth/invalid-email':
-        return 'Adresa de email nu este validă.'
+        return i18n.t('auth.errors.invalidEmail')
       case 'auth/weak-password':
-        return `Parola trebuie să aibă cel puțin ${MIN_PASSWORD_LENGTH} caractere.`
+        return i18n.t('auth.errors.weakPassword', { count: MIN_PASSWORD_LENGTH })
       case 'auth/email-already-in-use':
-        return 'Există deja un cont cu această adresă de email.'
+        return i18n.t('auth.errors.emailInUse')
       case 'auth/invalid-credential':
       case 'auth/user-not-found':
       case 'auth/wrong-password':
-        return 'Email sau parolă incorectă.'
+        return i18n.t('auth.errors.invalidCredential')
       case 'auth/too-many-requests':
-        return 'Prea multe încercări. Așteaptă puțin și încearcă din nou.'
+        return i18n.t('auth.errors.tooManyRequests')
       case 'auth/network-request-failed':
-        return 'Nu există conexiune la internet.'
+        return i18n.t('auth.errors.network')
       case 'auth/operation-not-allowed':
-        return 'Această metodă de autentificare nu este activată în Firebase.'
+        return i18n.t('auth.errors.notAllowed')
       case 'auth/popup-blocked':
-        return 'Browserul a blocat fereastra Google. Permite pop-up-urile pentru acest site și încearcă din nou.'
+        return i18n.t('auth.errors.popupBlocked')
       case 'auth/account-exists-with-different-credential':
-        return 'Există deja un cont cu acest email. Intră cu emailul și parola.'
+        return i18n.t('auth.errors.differentCredential')
       case 'auth/unauthorized-domain':
-        return 'Acest domeniu nu este autorizat în Firebase (Authentication → Settings → Authorized domains).'
+        return i18n.t('auth.errors.unauthorizedDomain')
     }
   }
-  return 'A apărut o eroare. Încearcă din nou.'
+  return i18n.t('auth.errors.generic')
 }

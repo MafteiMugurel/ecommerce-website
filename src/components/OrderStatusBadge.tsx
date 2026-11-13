@@ -1,4 +1,5 @@
-import { ORDER_STATUS_LABELS, type OrderStatus } from '../types/order'
+import { useTranslation } from 'react-i18next'
+import type { OrderStatus } from '../types/order'
 
 // Fiecare status are text + culoare (culoarea nu e singurul indiciu).
 const STATUS_CLASSES: Record<OrderStatus, string> = {
@@ -10,9 +11,10 @@ const STATUS_CLASSES: Record<OrderStatus, string> = {
 }
 
 export default function OrderStatusBadge({ status }: { status: OrderStatus }) {
+  const { t } = useTranslation()
   return (
     <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${STATUS_CLASSES[status]}`}>
-      {ORDER_STATUS_LABELS[status]}
+      {t(`orderStatus.${status}`)}
     </span>
   )
 }

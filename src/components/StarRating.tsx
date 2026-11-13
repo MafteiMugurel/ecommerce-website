@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 interface StarRatingProps {
   rating: number
   size?: 'sm' | 'md'
@@ -5,10 +7,11 @@ interface StarRatingProps {
 
 /** Afișează 5 stele, umplute proporțional cu nota (ex. 4.5 → 4 stele și jumătate). */
 export default function StarRating({ rating, size = 'sm' }: StarRatingProps) {
+  const { t } = useTranslation()
   const sizeClass = size === 'sm' ? 'h-4 w-4' : 'h-5 w-5'
 
   return (
-    <span className="inline-flex items-center" aria-label={`${rating.toFixed(1)} din 5 stele`} role="img">
+    <span className="inline-flex items-center" aria-label={t('product.ratingLabel', { rating: rating.toFixed(1) })} role="img">
       {[0, 1, 2, 3, 4].map((index) => {
         const fill = Math.max(0, Math.min(1, rating - index)) * 100
         return (

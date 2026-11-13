@@ -1,7 +1,9 @@
 import { useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { useCart } from '../context/cartContext'
 import { useFavorites } from '../context/favoritesContext'
+import LanguageSwitcher from './LanguageSwitcher'
 import MenuDrawer from './MenuDrawer'
 import SearchBar from './SearchBar'
 import ThemeToggle from './ThemeToggle'
@@ -17,6 +19,7 @@ function CountBadge({ count }: { count: number }) {
 }
 
 export default function Header() {
+  const { t } = useTranslation()
   const { totalItems, openCart } = useCart()
   const { count: favoritesCount } = useFavorites()
   const [menuOpen, setMenuOpen] = useState(false)
@@ -31,13 +34,13 @@ export default function Header() {
               type="button"
               onClick={() => setMenuOpen(true)}
               className="flex items-center gap-2 rounded-lg p-2 text-gray-700 hover:bg-gray-100"
-              aria-label="Deschide meniul de categorii"
+              aria-label={t('header.openMenu')}
               aria-expanded={menuOpen}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
-              <span className="hidden text-sm font-medium lg:inline">Categorii</span>
+              <span className="hidden text-sm font-medium lg:inline">{t('header.categories')}</span>
             </button>
             <Link to="/" className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
               IT Shop
@@ -48,13 +51,14 @@ export default function Header() {
           <SearchBar className="mx-auto hidden w-full max-w-xl md:block" />
 
           <div className="ml-auto flex shrink-0 items-center gap-0.5 sm:gap-1 md:ml-0">
+            <LanguageSwitcher />
             <ThemeToggle />
             <UserMenu />
             <Link
               to="/favorite"
               className="relative rounded-full p-2 text-gray-700 transition hover:bg-gray-100"
-              aria-label={`Favorite (${favoritesCount} produse)`}
-              title="Favorite"
+              aria-label={t('header.favoritesCount', { count: favoritesCount })}
+              title={t('header.favorites')}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                 <path
@@ -70,8 +74,8 @@ export default function Header() {
               type="button"
               onClick={openCart}
               className="relative rounded-full p-2 text-gray-700 transition hover:bg-gray-100"
-              aria-label={`Deschide coșul (${totalItems} produse)`}
-              title="Coș"
+              aria-label={t('header.openCart', { count: totalItems })}
+              title={t('header.cart')}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                 <path

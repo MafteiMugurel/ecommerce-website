@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface ChartCardProps {
   title: string
@@ -11,6 +12,7 @@ interface ChartCardProps {
 
 /** Card cu titlu și comutator Grafic / Tabel. */
 export default function ChartCard({ title, subtitle, chart, table }: ChartCardProps) {
+  const { t } = useTranslation()
   const [view, setView] = useState<'chart' | 'table'>('chart')
 
   return (
@@ -20,7 +22,7 @@ export default function ChartCard({ title, subtitle, chart, table }: ChartCardPr
           <h2 className="font-semibold text-gray-900">{title}</h2>
           {subtitle && <p className="text-xs text-gray-500">{subtitle}</p>}
         </div>
-        <div className="flex rounded-lg border border-gray-200 p-0.5 text-xs" role="group" aria-label="Mod de afișare">
+        <div className="flex rounded-lg border border-gray-200 p-0.5 text-xs" role="group" aria-label={t('common.viewMode')}>
           {(['chart', 'table'] as const).map((option) => (
             <button
               key={option}
@@ -31,7 +33,7 @@ export default function ChartCard({ title, subtitle, chart, table }: ChartCardPr
                 view === option ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900'
               }`}
             >
-              {option === 'chart' ? 'Grafic' : 'Tabel'}
+              {option === 'chart' ? t('common.chart') : t('common.table')}
             </button>
           ))}
         </div>

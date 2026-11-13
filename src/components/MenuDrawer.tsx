@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
 import NavMenu from './NavMenu'
 
@@ -7,6 +8,7 @@ interface MenuDrawerProps {
 }
 
 export default function MenuDrawer({ isOpen, onClose }: MenuDrawerProps) {
+  const { t } = useTranslation()
   // Închidere cu tasta Escape
   useEffect(() => {
     if (!isOpen) return
@@ -26,18 +28,18 @@ export default function MenuDrawer({ isOpen, onClose }: MenuDrawerProps) {
 
       <aside
         role="dialog"
-        aria-label="Meniu categorii"
+        aria-label={t('menu.title')}
         className={`absolute left-0 top-0 flex h-full w-full max-w-xs flex-col bg-surface shadow-xl transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="flex items-center justify-between border-b border-gray-200 px-5 py-4">
-          <h2 className="text-lg font-semibold text-gray-900">Categorii</h2>
+          <h2 className="text-lg font-semibold text-gray-900">{t('menu.title')}</h2>
           <button
             type="button"
             onClick={onClose}
             className="rounded-full p-1.5 text-gray-500 hover:bg-gray-100"
-            aria-label="Ascunde meniul"
+            aria-label={t('menu.hide')}
           >
             ✕
           </button>

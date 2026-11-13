@@ -1,14 +1,20 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { useCart } from '../context/cartContext'
 import { useFavorites } from '../context/favoritesContext'
+import { useCategoryLabel } from '../i18n/useCategoryLabel'
+import { categoryImage } from '../utils/productImage'
 import type { Product } from '../types/product'
 import { formatPrice } from '../utils/format'
+import ProductImage from './ProductImage'
 
 interface ProductCardProps {
   product: Product
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { t } = useTranslation()
+  const categoryLabel = useCategoryLabel()
   const { addItem, getQuantity } = useCart()
   const { isFavorite, toggleFavorite } = useFavorites()
   const favorite = isFavorite(product.id)
@@ -17,30 +23,32 @@ export default function ProductCard({ product }: ProductCardProps) {
   const inStock = product.stock > 0
   const limitReached = inStock && inCart >= product.stock
 
-  let buttonLabel = 'Adaugă în coș'
-  if (!inStock) buttonLabel = 'Stoc epuizat'
-  else if (limitReached) buttonLabel = 'Stoc maxim în coș'
+  let buttonLabel = t('product.addToCart')
+  if (!inStock) buttonLabel = t('product.outOfStock')
+  else if (limitReached) buttonLabel = t('product.maxInCart')
+
+  const favoriteLabel = favorite ? t('product.removeFavorite') : t('product.addFavorite')
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-surface shadow-sm transition hover:shadow-md">
       <div className="relative aspect-square overflow-hidden bg-gray-100">
         <Link to={productUrl} tabIndex={-1} aria-hidden="true">
-          <img
+          <ProductImage
             src={product.imageUrl}
-            alt=""
+            fallbackSrc={categoryImage(product.category)}
             loading="lazy"
-            className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+            className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
           />
         </Link>
         <span className="absolute left-3 top-3 rounded-full bg-surface/90 px-2.5 py-1 text-xs font-medium text-gray-700">
-          {product.category}
+          {categoryLabel(product.category)}
         </span>
         <button
           type="button"
           onClick={() => toggleFavorite(product.id)}
           aria-pressed={favorite}
-          aria-label={favorite ? 'Elimină de la favorite' : 'Adaugă la favorite'}
-          title={favorite ? 'Elimină de la favorite' : 'Adaugă la favorite'}
+          aria-label={favoriteLabel}
+          title={favoriteLabel}
           className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-surface/90 shadow-sm transition hover:scale-110"
         >
           <svg
@@ -58,7 +66,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </button>
         {inCart > 0 && (
           <span className="absolute bottom-3 right-3 rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-medium text-white">
-            {inCart} în coș
+            {t('product.inCartBadge', { count: inCart })}
           </span>
         )}
       </div>
@@ -76,7 +84,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <span className="text-lg font-bold text-gray-900">
             {formatPrice(product.price, product.currency)}
           </span>
-          <span className="text-sm text-amber-500" aria-label={`Rating ${product.rating} din 5`}>
+          <span className="text-sm text-amber-500" aria-label={t('product.ratingLabel', { rating: product.rating.toFixed(1) })}>
             ★ {product.rating.toFixed(1)}
           </span>
         </div>

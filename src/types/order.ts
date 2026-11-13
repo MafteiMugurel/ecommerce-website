@@ -12,14 +12,6 @@ export interface OrderItem {
 export const ORDER_STATUSES = ['placed', 'processing', 'shipped', 'delivered', 'cancelled'] as const
 export type OrderStatus = (typeof ORDER_STATUSES)[number]
 
-export const ORDER_STATUS_LABELS: Record<OrderStatus, string> = {
-  placed: 'Plasată',
-  processing: 'În procesare',
-  shipped: 'Expediată',
-  delivered: 'Livrată',
-  cancelled: 'Anulată',
-}
-
 // Structura unui document din colecția "orders" (Firestore).
 export interface Order {
   id: string

@@ -1,20 +1,24 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
+import AdminNav from '../components/admin/AdminNav'
 import BarList from '../components/admin/BarList'
 import ChartCard from '../components/admin/ChartCard'
 import ColumnChart from '../components/admin/ColumnChart'
 import StatTile from '../components/admin/StatTile'
 import OrderStatusBadge from '../components/OrderStatusBadge'
 import { useProducts } from '../hooks/useProducts'
+import { currentLocale } from '../i18n'
+import { useCategoryLabel } from '../i18n/useCategoryLabel'
 import { getMessages, getStoreCounts, type ContactMessageRecord, type StoreCounts } from '../services/adminService'
 import { getAllOrders, updateOrderStatus } from '../services/orderService'
-import { ORDER_STATUSES, ORDER_STATUS_LABELS, type Order, type OrderStatus } from '../types/order'
-import { formatDate, formatNumber, formatPrice } from '../utils/format'
+import { ORDER_STATUSES, type Order, type OrderStatus } from '../types/order'
+import { formatCompactPrice, formatDate, formatNumber, formatPrice } from '../utils/format'
 
 const PERIODS = [
-  { days: 7, label: '7 zile' },
-  { days: 30, label: '30 zile' },
-  { days: 90, label: '90 zile' },
+  { days: 7 },
+  { days: 30 },
+  { days: 90 },
 ] as const
 
 const DAY_MS = 86_400_000
@@ -24,22 +28,20 @@ function dayKey(date: Date) {
   return date.toISOString().slice(0, 10)
 }
 
-/** Format scurt pentru axe și carduri: 12.500 → „12,5 mii”, 1.250.000 → „1,25 mil.” */
-function formatCompactPrice(value: number) {
-  return `${new Intl.NumberFormat('ro-RO', { notation: 'compact', maximumFractionDigits: 1 }).format(value)} lei`
-}
-
 const tableClass = 'w-full text-left text-sm'
 const thClass = 'border-b border-gray-200 py-2 pr-3 font-medium text-gray-500'
 const tdClass = 'border-b border-gray-100 py-2 pr-3 text-gray-900'
 
 export default function AdminPage() {
+  const { t } = useTranslation()
+  const categoryLabel = useCategoryLabel()
   const { products, loading: productsLoading } = useProducts()
   const [orders, setOrders] = useState<Order[]>([])
   const [counts, setCounts] = useState<StoreCounts | null>(null)
   const [messages, setMessages] = useState<ContactMessageRecord[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  // cheia mesajului de eroare (tradus la afișare, deci urmează limba aleasă)
+  const [error, setError] = useState<'admin.loadError' | 'admin.statusError' | null>(null)
   const [periodDays, setPeriodDays] = useState<number>(30)
   const [updatingOrder, setUpdatingOrder] = useState<string | null>(null)
   // Momentul de referință pentru perioade, fixat la deschiderea paginii
@@ -55,7 +57,7 @@ export default function AdminPage() {
         setMessages(allMessages)
       })
       .catch(() => {
-        if (active) setError('Nu am putut încărca datele. Verifică dacă ai rol de admin și dacă regulile Firestore sunt publicate.')
+        if (active) setError('admin.loadError')
       })
       .finally(() => {
         if (active) setLoading(false)
@@ -84,8 +86,8 @@ export default function AdminPage() {
       return {
         key,
         value,
-        label: date.toLocaleDateString('ro-RO', { day: 'numeric', month: 'short' }),
-        tooltipLabel: date.toLocaleDateString('ro-RO', { weekday: 'long', day: 'numeric', month: 'long' }),
+        label: date.toLocaleDateString(currentLocale(), { day: 'numeric', month: 'short' }),
+        tooltipLabel: date.toLocaleDateString(currentLocale(), { weekday: 'long', day: 'numeric', month: 'long' }),
       }
     })
 
@@ -95,7 +97,7 @@ export default function AdminPage() {
     const byProduct = new Map<string, { name: string; units: number; revenue: number }>()
     for (const o of valid) {
       for (const item of o.items) {
-        const category = categoryOf.get(item.productId) ?? 'Altele'
+        const category = categoryOf.get(item.productId) ?? t('admin.otherCategory')
         byCategory.set(category, (byCategory.get(category) ?? 0) + item.price * item.quantity)
         const entry = byProduct.get(item.productId) ?? { name: item.name, units: 0, revenue: 0 }
         entry.units += item.quantity
@@ -116,14 +118,15 @@ export default function AdminPage() {
       averageOrder: valid.length ? revenue / valid.length : 0,
       registeredShare: inPeriod.length ? inPeriod.filter((o) => o.userId).length / inPeriod.length : 0,
       daily,
-      byCategory: [...byCategory.entries()].map(([label, value]) => ({ key: label, label, value })),
+      byCategory: [...byCategory.entries()].map(([name, value]) => ({ key: name, label: categoryLabel(name), value })),
       topProducts: [...byProduct.entries()]
         .map(([id, p]) => ({ id, ...p }))
         .sort((a, b) => b.units - a.units || b.revenue - a.revenue)
         .slice(0, 5),
       statusCounts,
     }
-  }, [orders, products, periodDays, now])
+    // t se schimbă odată cu limba, deci etichetele (zile, categorii) se refac automat
+  }, [orders, products, periodDays, now, t, categoryLabel])
 
   const lowStock = useMemo(
     () => products.filter((p) => p.stock <= LOW_STOCK_LIMIT).sort((a, b) => a.stock - b.stock),
@@ -138,27 +141,30 @@ export default function AdminPage() {
       await updateOrderStatus(orderId, status)
     } catch {
       setOrders(previous)
-      setError('Statusul comenzii nu a putut fi actualizat.')
+      setError('admin.statusError')
     } finally {
       setUpdatingOrder(null)
     }
   }
 
   if (loading || productsLoading) {
-    return <p className="mx-auto max-w-7xl px-4 py-8 text-gray-500 sm:px-6 lg:px-8">Se încarcă dashboard-ul...</p>
+    return <p className="mx-auto max-w-7xl px-4 py-8 text-gray-500 sm:px-6 lg:px-8">{t('admin.loading')}</p>
   }
 
-  const periodLabel = `ultimele ${periodDays} de zile`
+  const periodLabel = t('admin.lastDays', { count: periodDays })
 
   return (
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-8 sm:px-6 lg:px-8">
       {/* Titlu + filtrul de perioadă (un singur rând, deasupra graficelor) */}
       <div className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">Panou admin</h1>
-          <p className="text-sm text-gray-500">Statistici pentru {periodLabel}</p>
+        <div className="space-y-3">
+          <AdminNav />
+          <div>
+          <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">{t('admin.title')}</h1>
+          <p className="text-sm text-gray-500">{t('admin.subtitle', { count: periodDays })}</p>
+          </div>
         </div>
-        <div className="flex rounded-lg border border-gray-200 bg-surface p-0.5 text-sm" role="group" aria-label="Perioadă">
+        <div className="flex rounded-lg border border-gray-200 bg-surface p-0.5 text-sm" role="group" aria-label={t('admin.period')}>
           {PERIODS.map((period) => (
             <button
               key={period.days}
@@ -169,7 +175,7 @@ export default function AdminPage() {
                 periodDays === period.days ? 'bg-indigo-600 text-white' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              {period.label}
+              {t('admin.periodDays', { count: period.days })}
             </button>
           ))}
         </div>
@@ -177,39 +183,39 @@ export default function AdminPage() {
 
       {error && (
         <p role="alert" className="rounded-lg bg-red-50 dark:bg-red-950/40 px-4 py-3 text-sm text-red-700 dark:text-red-300">
-          {error}
+          {t(error)}
         </p>
       )}
 
       {/* Cifre-cheie */}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatTile label="Venituri" value={formatPrice(stats.revenue)} detail="fără comenzile anulate" />
+        <StatTile label={t('admin.revenue')} value={formatPrice(stats.revenue)} detail={t('admin.revenueDetail')} />
         <StatTile
-          label="Comenzi"
+          label={t('admin.orders')}
           value={formatNumber(stats.ordersCount)}
-          detail={`${formatNumber(stats.registeredShare * 100)}% de la clienți cu cont`}
+          detail={t('admin.ordersDetail', { percent: formatNumber(stats.registeredShare * 100) })}
         />
-        <StatTile label="Valoare medie comandă" value={formatPrice(stats.averageOrder)} />
-        <StatTile label="Produse vândute" value={formatNumber(stats.unitsSold)} detail="bucăți" />
-        <StatTile label="Utilizatori înregistrați" value={formatNumber(counts?.users ?? 0)} detail="total" />
+        <StatTile label={t('admin.averageOrder')} value={formatPrice(stats.averageOrder)} />
+        <StatTile label={t('admin.unitsSold')} value={formatNumber(stats.unitsSold)} detail={t('admin.unitsDetail')} />
+        <StatTile label={t('admin.users')} value={formatNumber(counts?.users ?? 0)} detail={t('admin.total')} />
         <StatTile
-          label="Recenzii"
+          label={t('admin.reviews')}
           value={formatNumber(counts?.reviews ?? 0)}
-          detail={`notă medie ${formatNumber(counts?.averageRating ?? 0, 2)} / 5`}
+          detail={t('admin.reviewsDetail', { rating: formatNumber(counts?.averageRating ?? 0, 2) })}
         />
         <StatTile
-          label="Produse în catalog"
+          label={t('admin.catalog')}
           value={formatNumber(products.length)}
-          detail={`${products.filter((p) => p.stock === 0).length} cu stoc epuizat`}
+          detail={t('admin.catalogDetail', { count: products.filter((p) => p.stock === 0).length })}
         />
-        <StatTile label="Mesaje de contact" value={formatNumber(messages.length)} detail="total" />
+        <StatTile label={t('admin.messages')} value={formatNumber(messages.length)} detail={t('admin.total')} />
       </div>
 
       {/* Grafice */}
       <div className="grid gap-6 lg:grid-cols-[3fr_2fr]">
         <ChartCard
-          title="Venituri pe zi"
-          subtitle={`${periodLabel}, în lei`}
+          title={t('admin.revenueByDay')}
+          subtitle={t('admin.revenueByDaySubtitle', { count: periodDays })}
           chart={
             <ColumnChart
               data={stats.daily}
@@ -221,8 +227,8 @@ export default function AdminPage() {
             <table className={tableClass}>
               <thead>
                 <tr>
-                  <th className={thClass}>Ziua</th>
-                  <th className={`${thClass} text-right`}>Venituri</th>
+                  <th className={thClass}>{t('admin.day')}</th>
+                  <th className={`${thClass} text-right`}>{t('admin.revenue')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -238,21 +244,21 @@ export default function AdminPage() {
         />
 
         <ChartCard
-          title="Venituri pe categorie"
+          title={t('admin.revenueByCategory')}
           subtitle={periodLabel}
           chart={
             stats.byCategory.length ? (
               <BarList data={stats.byCategory} formatValue={formatCompactPrice} />
             ) : (
-              <p className="text-sm text-gray-500">Nicio vânzare în această perioadă.</p>
+              <p className="text-sm text-gray-500">{t('admin.noSales')}</p>
             )
           }
           table={
             <table className={tableClass}>
               <thead>
                 <tr>
-                  <th className={thClass}>Categorie</th>
-                  <th className={`${thClass} text-right`}>Venituri</th>
+                  <th className={thClass}>{t('product.category')}</th>
+                  <th className={`${thClass} text-right`}>{t('admin.revenue')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -271,17 +277,17 @@ export default function AdminPage() {
       <div className="grid gap-6 lg:grid-cols-3">
         {/* Top produse */}
         <section className="rounded-2xl border border-gray-200 bg-surface p-5 lg:col-span-2">
-          <h2 className="mb-3 font-semibold text-gray-900">Cele mai vândute produse</h2>
+          <h2 className="mb-3 font-semibold text-gray-900">{t('admin.topProducts')}</h2>
           {stats.topProducts.length === 0 ? (
-            <p className="text-sm text-gray-500">Nicio vânzare în această perioadă.</p>
+            <p className="text-sm text-gray-500">{t('admin.noSales')}</p>
           ) : (
             <table className={tableClass}>
               <thead>
                 <tr>
                   <th className={thClass}>#</th>
-                  <th className={thClass}>Produs</th>
-                  <th className={`${thClass} text-right`}>Bucăți</th>
-                  <th className={`${thClass} text-right`}>Venituri</th>
+                  <th className={thClass}>{t('admin.product')}</th>
+                  <th className={`${thClass} text-right`}>{t('admin.units')}</th>
+                  <th className={`${thClass} text-right`}>{t('admin.revenue')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -304,7 +310,7 @@ export default function AdminPage() {
 
         {/* Comenzi pe status */}
         <section className="rounded-2xl border border-gray-200 bg-surface p-5">
-          <h2 className="mb-3 font-semibold text-gray-900">Comenzi pe status</h2>
+          <h2 className="mb-3 font-semibold text-gray-900">{t('admin.ordersByStatus')}</h2>
           <ul className="space-y-2.5">
             {stats.statusCounts.map(({ status, count }) => (
               <li key={status} className="flex items-center justify-between">
@@ -318,17 +324,17 @@ export default function AdminPage() {
 
       {/* Comenzi recente, cu schimbare de status */}
       <section className="rounded-2xl border border-gray-200 bg-surface p-5">
-        <h2 className="mb-3 font-semibold text-gray-900">Comenzi recente</h2>
+        <h2 className="mb-3 font-semibold text-gray-900">{t('admin.recentOrders')}</h2>
         <div className="overflow-x-auto">
           <table className={`${tableClass} min-w-[640px]`}>
             <thead>
               <tr>
-                <th className={thClass}>Comandă</th>
-                <th className={thClass}>Data</th>
-                <th className={thClass}>Client</th>
-                <th className={`${thClass} text-right`}>Produse</th>
-                <th className={`${thClass} text-right`}>Total</th>
-                <th className={thClass}>Status</th>
+                <th className={thClass}>{t('admin.order')}</th>
+                <th className={thClass}>{t('admin.date')}</th>
+                <th className={thClass}>{t('admin.customer')}</th>
+                <th className={`${thClass} text-right`}>{t('admin.itemsCount')}</th>
+                <th className={`${thClass} text-right`}>{t('admin.totalColumn')}</th>
+                <th className={thClass}>{t('admin.status')}</th>
               </tr>
             </thead>
             <tbody>
@@ -336,7 +342,7 @@ export default function AdminPage() {
                 <tr key={o.id}>
                   <td className={`${tdClass} font-mono text-xs`}>#{o.id.slice(0, 8).toUpperCase()}</td>
                   <td className={tdClass}>{formatDate(o.createdAt)}</td>
-                  <td className={`${tdClass} text-gray-600`}>{o.userId ? 'Cont' : 'Vizitator'}</td>
+                  <td className={`${tdClass} text-gray-600`}>{o.userId ? t('admin.customerAccount') : t('admin.customerGuest')}</td>
                   <td className={`${tdClass} text-right tabular-nums`}>{o.totalItems}</td>
                   <td className={`${tdClass} text-right tabular-nums`}>{formatPrice(o.totalPrice)}</td>
                   <td className={tdClass}>
@@ -344,12 +350,12 @@ export default function AdminPage() {
                       value={o.status}
                       disabled={updatingOrder === o.id}
                       onChange={(e) => void handleStatusChange(o.id, e.target.value as OrderStatus)}
-                      aria-label={`Status comanda ${o.id.slice(0, 8)}`}
+                      aria-label={t('admin.statusFor', { id: o.id.slice(0, 8) })}
                       className="rounded-md border border-gray-300 bg-surface px-2 py-1 text-sm text-gray-900"
                     >
                       {ORDER_STATUSES.map((status) => (
                         <option key={status} value={status}>
-                          {ORDER_STATUS_LABELS[status]}
+                          {t(`orderStatus.${status}`)}
                         </option>
                       ))}
                     </select>
@@ -364,7 +370,7 @@ export default function AdminPage() {
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Stoc redus */}
         <section className="rounded-2xl border border-gray-200 bg-surface p-5">
-          <h2 className="mb-3 font-semibold text-gray-900">Stoc redus (≤ {LOW_STOCK_LIMIT} buc.)</h2>
+          <h2 className="mb-3 font-semibold text-gray-900">{t('admin.lowStock', { count: LOW_STOCK_LIMIT })}</h2>
           <ul className="divide-y divide-gray-100">
             {lowStock.map((p) => (
               <li key={p.id} className="flex items-center justify-between gap-3 py-2 text-sm">
@@ -374,7 +380,7 @@ export default function AdminPage() {
                 <span
                   className={`shrink-0 font-medium tabular-nums ${p.stock === 0 ? 'text-red-600 dark:text-red-400' : 'text-amber-600 dark:text-amber-400'}`}
                 >
-                  {p.stock === 0 ? 'Epuizat' : `${p.stock} buc.`}
+                  {p.stock === 0 ? t('admin.soldOut') : t('admin.pieces', { count: p.stock })}
                 </span>
               </li>
             ))}
@@ -383,9 +389,9 @@ export default function AdminPage() {
 
         {/* Mesaje */}
         <section className="rounded-2xl border border-gray-200 bg-surface p-5">
-          <h2 className="mb-3 font-semibold text-gray-900">Ultimele mesaje de contact</h2>
+          <h2 className="mb-3 font-semibold text-gray-900">{t('admin.latestMessages')}</h2>
           {messages.length === 0 ? (
-            <p className="text-sm text-gray-500">Niciun mesaj.</p>
+            <p className="text-sm text-gray-500">{t('admin.noMessages')}</p>
           ) : (
             <ul className="divide-y divide-gray-100">
               {messages.slice(0, 5).map((m) => (

@@ -5,12 +5,12 @@ import type { Product } from '../types/product'
 export function useProducts() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     getProducts()
       .then(setProducts)
-      .catch(() => setError('Nu am putut încărca produsele.'))
+      .catch(() => setError(true))
       .finally(() => setLoading(false))
   }, [])
 

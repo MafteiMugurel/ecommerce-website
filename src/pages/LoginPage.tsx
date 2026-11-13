@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router'
 import AuthLayout, { authInputClass } from '../components/AuthLayout'
 import GoogleSignInButton from '../components/GoogleSignInButton'
@@ -6,6 +7,7 @@ import { useAuth } from '../context/authContext'
 import { getAuthErrorMessage } from '../services/authService'
 
 export default function LoginPage() {
+  const { t } = useTranslation()
   const { user, login } = useAuth()
   const navigate = useNavigate()
   // Pagina de unde a venit utilizatorul – după autentificare îl ducem înapoi acolo
@@ -30,7 +32,7 @@ export default function LoginPage() {
   }
 
   return (
-    <AuthLayout title="Intră în cont" subtitle="Bine ai revenit! Introdu datele contului tău.">
+    <AuthLayout title={t('auth.loginTitle')} subtitle={t('auth.loginSubtitle')}>
       <GoogleSignInButton redirectTo={from} onPendingChange={setSubmitting} onError={setError} />
       <form onSubmit={handleSubmit} className="space-y-4">
         {error && (
@@ -39,11 +41,11 @@ export default function LoginPage() {
           </p>
         )}
         <label className="block text-sm font-medium text-gray-700">
-          Email
+          {t('auth.email')}
           <input name="email" type="email" autoComplete="email" required className={authInputClass} />
         </label>
         <label className="block text-sm font-medium text-gray-700">
-          Parolă
+          {t('auth.password')}
           <input name="password" type="password" autoComplete="current-password" required className={authInputClass} />
         </label>
         <button
@@ -51,14 +53,14 @@ export default function LoginPage() {
           disabled={submitting}
           className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-wait disabled:bg-indigo-400"
         >
-          {submitting ? 'Se verifică...' : 'Intră în cont'}
+          {submitting ? t('auth.checking') : t('auth.loginButton')}
         </button>
       </form>
 
       <p className="mt-6 text-center text-sm text-gray-600">
-        Nu ai cont?{' '}
+        {t('auth.noAccount')}{' '}
         <Link to="/cont-nou" state={{ from }} className="font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
-          Creează unul
+          {t('auth.createOne')}
         </Link>
       </p>
     </AuthLayout>

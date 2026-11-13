@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next'
 import { useTheme } from '../context/themeContext'
 
 export default function ThemeToggle() {
+  const { t } = useTranslation()
   const { theme, toggleTheme } = useTheme()
   const isDark = theme === 'dark'
-  const label = isDark ? 'Comută pe tema luminoasă' : 'Comută pe tema întunecată'
+  const label = isDark ? t('theme.toLight') : t('theme.toDark')
 
   return (
     <button

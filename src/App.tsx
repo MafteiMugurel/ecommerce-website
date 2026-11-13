@@ -8,6 +8,8 @@ import CartProvider from './context/CartProvider'
 import FavoritesProvider from './context/FavoritesProvider'
 import ThemeProvider from './context/ThemeProvider'
 import AdminPage from './pages/AdminPage'
+import AdminProductFormPage from './pages/AdminProductFormPage'
+import AdminProductsPage from './pages/AdminProductsPage'
 import ContactPage from './pages/ContactPage'
 import OrdersPage from './pages/OrdersPage'
 import FavoritesPage from './pages/FavoritesPage'
@@ -44,6 +46,30 @@ export default function App() {
                       element={
                         <RequireAuth>
                           <OrdersPage />
+                        </RequireAuth>
+                      }
+                    />
+                    <Route
+                      path="/admin/produse"
+                      element={
+                        <RequireAuth admin>
+                          <AdminProductsPage />
+                        </RequireAuth>
+                      }
+                    />
+                    <Route
+                      path="/admin/produse/nou"
+                      element={
+                        <RequireAuth admin>
+                          <AdminProductFormPage />
+                        </RequireAuth>
+                      }
+                    />
+                    <Route
+                      path="/admin/produse/:productId"
+                      element={
+                        <RequireAuth admin>
+                          <AdminProductFormPage />
                         </RequireAuth>
                       }
                     />

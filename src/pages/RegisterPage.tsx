@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router'
 import AuthLayout, { authInputClass } from '../components/AuthLayout'
 import GoogleSignInButton from '../components/GoogleSignInButton'
@@ -6,6 +7,7 @@ import { useAuth } from '../context/authContext'
 import { getAuthErrorMessage, MIN_PASSWORD_LENGTH } from '../services/authService'
 
 export default function RegisterPage() {
+  const { t } = useTranslation()
   const { user, register } = useAuth()
   const navigate = useNavigate()
   const from = (useLocation().state as { from?: string } | null)?.from ?? '/'
@@ -23,11 +25,11 @@ export default function RegisterPage() {
     const confirm = String(data.get('confirm') ?? '')
 
     if (name.length < 2) {
-      setError('Introdu numele tău (cel puțin 2 caractere).')
+      setError(t('auth.nameTooShort'))
       return
     }
     if (password !== confirm) {
-      setError('Parolele nu coincid.')
+      setError(t('auth.passwordMismatch'))
       return
     }
 
@@ -43,7 +45,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <AuthLayout title="Creează cont" subtitle="Durează mai puțin de un minut.">
+    <AuthLayout title={t('auth.registerTitle')} subtitle={t('auth.registerSubtitle')}>
       <GoogleSignInButton redirectTo={from} onPendingChange={setSubmitting} onError={setError} />
       <form onSubmit={handleSubmit} className="space-y-4">
         {error && (
@@ -52,15 +54,15 @@ export default function RegisterPage() {
           </p>
         )}
         <label className="block text-sm font-medium text-gray-700">
-          Nume
+          {t('auth.name')}
           <input name="name" autoComplete="name" required maxLength={50} className={authInputClass} />
         </label>
         <label className="block text-sm font-medium text-gray-700">
-          Email
+          {t('auth.email')}
           <input name="email" type="email" autoComplete="email" required className={authInputClass} />
         </label>
         <label className="block text-sm font-medium text-gray-700">
-          Parolă
+          {t('auth.password')}
           <input
             name="password"
             type="password"
@@ -69,10 +71,10 @@ export default function RegisterPage() {
             minLength={MIN_PASSWORD_LENGTH}
             className={authInputClass}
           />
-          <span className="mt-1 block text-xs font-normal text-gray-500">Minim {MIN_PASSWORD_LENGTH} caractere.</span>
+          <span className="mt-1 block text-xs font-normal text-gray-500">{t('auth.passwordHint', { count: MIN_PASSWORD_LENGTH })}</span>
         </label>
         <label className="block text-sm font-medium text-gray-700">
-          Confirmă parola
+          {t('auth.confirmPassword')}
           <input name="confirm" type="password" autoComplete="new-password" required className={authInputClass} />
         </label>
         <button
@@ -80,14 +82,14 @@ export default function RegisterPage() {
           disabled={submitting}
           className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-wait disabled:bg-indigo-400"
         >
-          {submitting ? 'Se creează contul...' : 'Creează cont'}
+          {submitting ? t('auth.creating') : t('auth.registerButton')}
         </button>
       </form>
 
       <p className="mt-6 text-center text-sm text-gray-600">
-        Ai deja cont?{' '}
+        {t('auth.haveAccount')}{' '}
         <Link to="/autentificare" state={{ from }} className="font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
-          Intră în cont
+          {t('auth.loginButton')}
         </Link>
       </p>
     </AuthLayout>

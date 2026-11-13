@@ -50,7 +50,14 @@
       "price": 1899,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/AMD%405nmCCD%286nmIOD%29%40Zen4%40Raphael%40Ryzen_7_7800X3D%40100-000000910_BS_2312PGY_9LW3390030138_DSCx01.jpg/960px-AMD%405nmCCD%286nmIOD%29%40Zen4%40Raphael%40Ryzen_7_7800X3D%40100-000000910_BS_2312PGY_9LW3390030138_DSCx01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "FritzchensFritz",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:AMD@5nmCCD(6nmIOD)@Zen4@Raphael@Ryzen_7_7800X3D@100-000000910_BS_2312PGY_9LW3390030138_DSCx01.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 15,
       "rating": 4.9,
       "specs": [
@@ -258,7 +265,14 @@
       "price": 849,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/SAMSUNG_M.2_NVMe_SSD_990_PRO_4TB.jpg/960px-SAMSUNG_M.2_NVMe_SSD_990_PRO_4TB.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Dinkun Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:SAMSUNG_M.2_NVMe_SSD_990_PRO_4TB.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 30,
       "rating": 4.9,
       "specs": [
@@ -309,7 +323,14 @@
       "price": 469,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/2TB_WD_Elements_Portable_1_2016-07-03.jpg/960px-2TB_WD_Elements_Portable_1_2016-07-03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "FASTILY",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2TB_WD_Elements_Portable_1_2016-07-03.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 22,
       "rating": 4.4,
       "specs": [
@@ -462,7 +483,14 @@
       "price": 529,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Keychron_K8_Non-Backlight_Wireless_Mechanical_Keyboard.jpg/960px-Keychron_K8_Non-Backlight_Wireless_Mechanical_Keyboard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Triple-green",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Keychron_K8_Non-Backlight_Wireless_Mechanical_Keyboard.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 0,
       "rating": 4.6,
       "specs": [
@@ -893,7 +921,14 @@
       "price": 14999,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/HPE_ProLiant_DL360_Gen10_nodes_in_MAM_cluster.jpg/960px-HPE_ProLiant_DL360_Gen10_nodes_in_MAM_cluster.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Btrs",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:HPE_ProLiant_DL360_Gen10_nodes_in_MAM_cluster.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 2,
       "rating": 4.7,
       "specs": [
@@ -1234,7 +1269,14 @@
       "price": 2199,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Intel_Core_i7-14700K_%28INVADERPC%29.png/960px-Intel_Core_i7-14700K_%28INVADERPC%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "INVADER PC",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Intel_Core_i7-14700K_(INVADERPC).png",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 11,
       "rating": 4.7,
       "specs": [
@@ -1336,7 +1378,14 @@
       "price": 949,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/AMD_Ryzen_5_7600_top_IMGP6773_smial_wp.jpg/960px-AMD_Ryzen_5_7600_top_IMGP6773_smial_wp.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Smial",
+        "license": "FAL",
+        "licenseUrl": "http://artlibre.org/licence/lal/en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_7600_top_IMGP6773_smial_wp.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 19,
       "rating": 4.7,
       "specs": [
@@ -1587,7 +1636,14 @@
       "price": 549,
       "currency": "RON",
       "category": "Componente PC",
-      "imageUrl": "/images/categories/componente.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/NH-D15_with_classic_fans.jpg/960px-NH-D15_with_classic_fans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Kaleb Kloppe",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:NH-D15_with_classic_fans.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 13,
       "rating": 4.9,
       "specs": [
@@ -1728,7 +1784,14 @@
       "price": 639,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Crucial_CT20000P3PSSD8_20240302_002_OKcorr02_Kopie.jpg/960px-Crucial_CT20000P3PSSD8_20240302_002_OKcorr02_Kopie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "PantheraLeo1359531",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crucial_CT20000P3PSSD8_20240302_002_OKcorr02_Kopie.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 28,
       "rating": 4.5,
       "specs": [
@@ -1877,7 +1940,14 @@
       "price": 1149,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Seagate%2C_Ironwolf%2C_NAS%2C_Harddrive.jpg/960px-Seagate%2C_Ironwolf%2C_NAS%2C_Harddrive.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Kent Madsen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seagate,_Ironwolf,_NAS,_Harddrive.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 14,
       "rating": 4.6,
       "specs": [
@@ -1979,7 +2049,14 @@
       "price": 69,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Sandisk_Ultra_USB_Flash_Drive.png/960px-Sandisk_Ultra_USB_Flash_Drive.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Korail2012",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandisk_Ultra_USB_Flash_Drive.png",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 120,
       "rating": 4.4,
       "specs": [
@@ -2022,7 +2099,14 @@
       "price": 129,
       "currency": "RON",
       "category": "Stocare",
-      "imageUrl": "/images/categories/stocare.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Samsung_EVO_Plus_64%2C_Winschoten_%282019%29_03.jpg/960px-Samsung_EVO_Plus_64%2C_Winschoten_%282019%29_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Donald Trung Quoc Don (Chữ Hán: 徵國單)",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samsung_EVO_Plus_64,_Winschoten_(2019)_03.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 75,
       "rating": 4.7,
       "specs": [
@@ -2277,7 +2361,14 @@
       "price": 569,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Logitech_MX_Keys_YR0073_Wireless_Keyboard.jpg/960px-Logitech_MX_Keys_YR0073_Wireless_Keyboard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "TaurusEmerald",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Logitech_MX_Keys_YR0073_Wireless_Keyboard.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 22,
       "rating": 4.8,
       "specs": [
@@ -2324,7 +2415,14 @@
       "price": 129,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Clavier_sans_fil_Logitech_K270.jpg/960px-Clavier_sans_fil_Logitech_K270.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Julien Sinan",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clavier_sans_fil_Logitech_K270.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 64,
       "rating": 4.4,
       "specs": [
@@ -2414,7 +2512,14 @@
       "price": 999,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Dell_WD19_%28model_K20A%29-5812.jpg/960px-Dell_WD19_%28model_K20A%29-5812.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Raimond Spekking",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dell_WD19_(model_K20A)-5812.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 12,
       "rating": 4.4,
       "specs": [
@@ -2504,7 +2609,14 @@
       "price": 649,
       "currency": "RON",
       "category": "Periferice",
-      "imageUrl": "/images/categories/periferice.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Wacom_Intuos_S.jpg/960px-Wacom_Intuos_S.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Smitop",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wacom_Intuos_S.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 8,
       "rating": 4.6,
       "specs": [
@@ -2602,7 +2714,14 @@
       "price": 1199,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/AirPods_Pro_2.jpg/960px-AirPods_Pro_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "aconcagua",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:AirPods_Pro_2.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 23,
       "rating": 4.7,
       "specs": [
@@ -2649,7 +2768,14 @@
       "price": 699,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Samsung_Galaxy_Buds2_Pro_%28Graphite%29.jpg/960px-Samsung_Galaxy_Buds2_Pro_%28Graphite%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Gannu03",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_Buds2_Pro_(Graphite).jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 17,
       "rating": 4.4,
       "specs": [
@@ -2931,7 +3057,14 @@
       "price": 549,
       "currency": "RON",
       "category": "Audio",
-      "imageUrl": "/images/categories/audio.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Rode_NT-USB_Mini_microphone_001.jpg/960px-Rode_NT-USB_Mini_microphone_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Martin Michlmayr",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rode_NT-USB_Mini_microphone_001.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 14,
       "rating": 4.6,
       "specs": [
@@ -2978,7 +3111,14 @@
       "price": 2799,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Playstation_5_mod%C3%A8le_slim_%28%C3%A9dition_standard_avec_lecteur_de_disque_amovible.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "imageCredit": {
+        "author": "Back to our history",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Playstation_5_mod%C3%A8le_slim_(%C3%A9dition_standard_avec_lecteur_de_disque_amovible.png",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 8,
       "rating": 4.8,
       "specs": [
@@ -3025,7 +3165,14 @@
       "price": 1599,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Nintendo-Switch-OLED-Docked.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "imageCredit": {
+        "author": "PantheraLeo1359531",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nintendo-Switch-OLED-Docked.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 11,
       "rating": 4.7,
       "specs": [
@@ -3072,7 +3219,14 @@
       "price": 2599,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Xbox_Series_X.png/960px-Xbox_Series_X.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Emrekozan00",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xbox_Series_X.png",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 0,
       "rating": 4.7,
       "specs": [
@@ -3119,7 +3273,14 @@
       "price": 349,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Playstation_DualSense_Controller.png/960px-Playstation_DualSense_Controller.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Alex Cochrane",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Playstation_DualSense_Controller.png",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 38,
       "rating": 4.7,
       "specs": [
@@ -3346,7 +3507,14 @@
       "price": 1299,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Logitech_G29_steering_wheel.jpg/960px-Logitech_G29_steering_wheel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Antoineets",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Logitech_G29_steering_wheel.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 7,
       "rating": 4.6,
       "specs": [
@@ -3389,7 +3557,14 @@
       "price": 2599,
       "currency": "RON",
       "category": "Gaming",
-      "imageUrl": "/images/categories/gaming.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Meta_Quest_3_front_View.jpg/960px-Meta_Quest_3_front_View.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Roy.wonder.cohen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meta_Quest_3_front_View.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 6,
       "rating": 4.6,
       "specs": [
@@ -3863,7 +4038,14 @@
       "price": 4299,
       "currency": "RON",
       "category": "Servere",
-      "imageUrl": "/images/categories/servere.svg",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Windows_Server_2022_start_menu.png/960px-Windows_Server_2022_start_menu.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "imageCredit": {
+        "author": "Microsoft",
+        "license": "Public domain",
+        "licenseUrl": null,
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Windows_Server_2022_start_menu.png",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 25,
       "rating": 4.3,
       "specs": [
@@ -4724,7 +4906,14 @@
       "price": 549,
       "currency": "RON",
       "category": "Rețelistică",
-      "imageUrl": "/images/categories/retelistica.svg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/UTP_Cat_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "imageCredit": {
+        "author": "Talifero",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:UTP_Cat_6.jpg",
+        "sourceName": "Wikimedia Commons"
+      },
       "stock": 14,
       "rating": 4.5,
       "specs": [

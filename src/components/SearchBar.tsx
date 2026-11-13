@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next'
 import { useState, type FormEvent } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
 export default function SearchBar({ className = '' }: { className?: string }) {
+  const { t } = useTranslation()
   const [searchParams] = useSearchParams()
   const currentQuery = searchParams.get('q') ?? ''
   const [query, setQuery] = useState(currentQuery)
@@ -35,8 +37,8 @@ export default function SearchBar({ className = '' }: { className?: string }) {
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Caută produse, branduri..."
-        aria-label="Caută produse"
+        placeholder={t('search.placeholder')}
+        aria-label={t('search.label')}
         className="w-full rounded-full border border-gray-300 bg-gray-50 py-2 pl-10 pr-4 text-sm text-gray-900 focus:border-indigo-500 focus:bg-surface focus:outline-none focus:ring-2 focus:ring-indigo-200"
       />
     </form>
