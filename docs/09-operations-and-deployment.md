@@ -128,4 +128,6 @@ Running it again creates no duplicates (accounts are reused, orders have fixed I
 | Google sign-in shows *“unauthorized-domain”* | add the domain under Authentication → Settings → Authorized domains |
 | The published site shows 404 on refresh | the rewrite rule in `firebase.json` is missing (it is included) – run `npm run deploy` again |
 | `npm run build` fails about a translation key | the key is missing from `en.ts` or `ro.ts` – add it to both |
+| `seed-demo` / `update-images` stop with `auth/invalid-credential` at **“Admin sign-in failed”** | wrong admin email/password, or the admin signs in with Google (no password). Create an email+password account on the site and add its UID to `admins` |
+| `seed-demo` prints **“accounts already existed with another password and were skipped”** | the demo customers were created by an earlier run with a different customers password. Re-run with that same password to include them; the orders are created either way |
 | A product photo does not show | the source site is not responding; the app automatically shows the category illustration. Change the URL in the admin panel |

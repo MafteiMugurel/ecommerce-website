@@ -124,9 +124,28 @@ function statusFor(daysAgo) {
   return 'delivered'
 }
 
+/** Eroare cu explicație pentru pasul la care a apărut. */
+class StepError extends Error {
+  constructor(step, cause) {
+    super(`${step}: ${cause.code ?? ''} ${cause.message}`)
+    this.code = cause.code
+    this.step = step
+  }
+}
+
 try {
+  // ---- 0) verificăm din start datele de admin (ca să nu creăm clienți degeaba) ----
+  try {
+    await signInWithEmailAndPassword(auth, adminEmail, adminPassword)
+    await signOut(auth)
+    console.log(`✓ autentificare admin: ${adminEmail}`)
+  } catch (error) {
+    throw new StepError('Autentificarea ca admin a eșuat', error)
+  }
+
   // ---- 1) clienți fictivi ----
   const customers = []
+  const skipped = []
   for (let i = 0; i < 30; i++) {
     const first = FIRST[i]
     const last = LAST[(i * 7) % LAST.length]
@@ -136,8 +155,17 @@ try {
     try {
       ;({ user } = await createUserWithEmailAndPassword(auth, email, customerPassword))
     } catch (error) {
-      if (error.code !== 'auth/email-already-in-use') throw error
-      ;({ user } = await signInWithEmailAndPassword(auth, email, customerPassword))
+      if (error.code !== 'auth/email-already-in-use') throw new StepError(`Crearea clientului ${email} a eșuat`, error)
+      try {
+        ;({ user } = await signInWithEmailAndPassword(auth, email, customerPassword))
+      } catch (signInError) {
+        // Contul există dintr-o rulare anterioară, cu altă parolă: îl sărim și continuăm
+        if (signInError.code === 'auth/invalid-credential' || signInError.code === 'auth/wrong-password') {
+          skipped.push(email)
+          continue
+        }
+        throw new StepError(`Autentificarea clientului ${email} a eșuat`, signInError)
+      }
     }
     await updateProfile(user, { displayName: name })
     const address = makeAddress()
@@ -152,12 +180,22 @@ try {
     })
     customers.push({ uid: user.uid, name, email, phone: phone(), ...address, registeredDaysAgo })
     await signOut(auth)
-    process.stdout.write(`\r✓ clienți: ${i + 1}/30`)
+    process.stdout.write(`\r✓ clienți: ${customers.length}/30`)
   }
   console.log()
+  if (skipped.length) {
+    console.warn(
+      `⚠ ${skipped.length} conturi existau deja cu altă parolă și au fost sărite ` +
+        `(folosește aceeași parolă pentru clienți ca la prima rulare ca să le incluzi):\n  ${skipped.join(', ')}`,
+    )
+  }
 
   // ---- 2) comenzi, scrise ca admin ----
-  await signInWithEmailAndPassword(auth, adminEmail, adminPassword)
+  try {
+    await signInWithEmailAndPassword(auth, adminEmail, adminPassword)
+  } catch (error) {
+    throw new StepError('Autentificarea ca admin a eșuat', error)
+  }
   const orders = []
   for (let daysAgo = 89; daysAgo >= 0; daysAgo--) {
     const weekday = new Date(now - daysAgo * DAY_MS).getDay()
@@ -200,7 +238,11 @@ try {
   console.log(`✓ ${orders.length} comenzi (${withAccount} de la clienți cu cont), venituri ${Math.round(revenue).toLocaleString('ro-RO')} lei`)
   console.log(`  Conturile fictive: prenume.nume@example.com, parola dată la rulare.`)
 } catch (error) {
-  console.error('\nEroare:', error.code ?? '', error.message)
+  console.error('\nEroare:', error.message)
+  if (error.step?.startsWith('Autentificarea ca admin') && error.code === 'auth/invalid-credential') {
+    console.error('→ Emailul sau parola de admin sunt greșite. Dacă te loghezi pe site cu „Continuă cu Google”,')
+    console.error('  contul nu are parolă: creează pe site un cont cu email + parolă și adaugă-i UID-ul în colecția admins.')
+  }
   if (error.code === 'permission-denied') {
     console.error('→ Verifică: regulile din firestore.rules sunt publicate și contul admin are documentul admins/<uid>.')
   }
